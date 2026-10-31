@@ -37,10 +37,17 @@
     ::selection { background: var(--white); color: var(--black); }
 
     .site-header {
-      position: absolute;
+      position: fixed;
       z-index: 10;
       inset: 0 0 auto;
       width: 100%;
+      transform: translateY(0);
+      transition: transform .35s var(--ease);
+      will-change: transform;
+    }
+    .site-header.is-hidden {
+      transform: translateY(-100%);
+      pointer-events: none;
     }
     .nav-wrap {
       width: min(calc(100% - 8vw), 1680px);
@@ -459,8 +466,15 @@
   </footer>
 
   <script>
+    const siteHeader = document.querySelector('.site-header');
     const menuButton = document.querySelector('.menu-button');
     const navigation = document.querySelector('.nav-links');
+
+    const closeMobileMenu = () => {
+      navigation.classList.remove('is-open');
+      menuButton.setAttribute('aria-expanded', 'false');
+      menuButton.setAttribute('aria-label', 'Open navigation');
+    };
 
     menuButton.addEventListener('click', () => {
       const isOpen = navigation.classList.toggle('is-open');
@@ -469,12 +483,34 @@
     });
 
     navigation.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => {
-        navigation.classList.remove('is-open');
-        menuButton.setAttribute('aria-expanded', 'false');
-        menuButton.setAttribute('aria-label', 'Open navigation');
-      });
+      link.addEventListener('click', closeMobileMenu);
     });
+
+    // Hide the header while scrolling down; reveal it on any upward movement.
+    let previousScrollY = window.scrollY;
+    let scrollUpdatePending = false;
+
+    window.addEventListener('scroll', () => {
+      if (scrollUpdatePending) return;
+      scrollUpdatePending = true;
+
+      window.requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const scrollDelta = currentScrollY - previousScrollY;
+
+        if (currentScrollY <= 8) {
+          siteHeader.classList.remove('is-hidden');
+        } else if (scrollDelta > 0) {
+          siteHeader.classList.add('is-hidden');
+          closeMobileMenu();
+        } else if (scrollDelta < 0) {
+          siteHeader.classList.remove('is-hidden');
+        }
+
+        previousScrollY = currentScrollY;
+        scrollUpdatePending = false;
+      });
+    }, { passive: true });
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
