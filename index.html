@@ -12,8 +12,12 @@
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="msapplication-TileColor" content="#000000" />
   <meta name="msapplication-config" content="browserconfig.xml" />
+  <meta name="author" content="AZRYON" />
 
-  <!-- Browser favicons: SVG where supported, PNG/ICO fallbacks elsewhere. -->
+  <!-- Official canonical URL -->
+  <link rel="canonical" href="https://azryon.com/" />
+
+  <!-- Browser favicons and device icons -->
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
   <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
@@ -24,32 +28,143 @@
   <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#ffffff" />
   <link rel="manifest" href="site.webmanifest" />
 
-  <meta name="description" content="AZRYON — Space · SI · Robotics · Investments." />
-  <!-- Social platforms (Facebook, LinkedIn, WhatsApp, Telegram, Discord, Slack, Reddit) use Open Graph. -->
-  <!-- After publishing, set og:image to the full absolute URL of this image for best crawler compatibility. -->
+  <!-- Search and social metadata -->
+  <meta name="description" content="AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="AZRYON" />
+  <meta property="og:url" content="https://azryon.com/" />
   <meta property="og:title" content="AZRYON" />
-  <meta property="og:description" content="AZRYON — Space · SI · Robotics · Investments." />
-  <meta property="og:image" content="icons/azryon-social-preview.png" />
+  <meta property="og:description" content="AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments." />
+  <meta property="og:image" content="https://azryon.com/icons/azryon-social-preview.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="AZRYON white geometric mark on a black background" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="AZRYON" />
-  <meta name="twitter:description" content="AZRYON — Space · SI · Robotics · Investments." />
-  <meta name="twitter:image" content="icons/azryon-social-preview.png" />
+  <meta name="twitter:description" content="AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments." />
+  <meta name="twitter:image" content="https://azryon.com/icons/azryon-social-preview.png" />
   <meta name="twitter:image:alt" content="AZRYON white geometric mark on a black background" />
 
-  <!-- Organization logo for structured-data consumers. Replace with its absolute URL after deployment if desired. -->
+  <!-- AZRYON Organization, subsidiaries, website and homepage structured data. -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AZRYON",
-    "logo": "icons/android-chrome-512x512.png"
-  }
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#organization",
+      "name": "AZRYON",
+      "url": "https://azryon.com/",
+      "description": "AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments.",
+      "foundingDate": "2026",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://azryon.com/#logo",
+        "url": "https://azryon.com/icons/android-chrome-512x512.png",
+        "contentUrl": "https://azryon.com/icons/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "AZRYON official logo"
+      },
+      "sameAs": [
+        "https://web.facebook.com/AzryonInc",
+        "https://www.instagram.com/azryoninc",
+        "https://www.youtube.com/@AzryonInc",
+        "https://www.tiktok.com/@azryoninc",
+        "https://x.com/AzryonInc",
+        "https://www.linkedin.com/company/azryoninc"
+      ],
+      "subOrganization": [
+        {
+          "@id": "https://azryon.com/#azryon-si"
+        },
+        {
+          "@id": "https://azryon.com/#azryon-robotics"
+        },
+        {
+          "@id": "https://azryon.com/#azryon-capital"
+        },
+        {
+          "@id": "https://azryon.com/#azryon-space"
+        }
+      ],
+      "knowsAbout": [
+        "Space technology",
+        "Super Intelligence",
+        "Artificial intelligence",
+        "Robotics",
+        "Investments"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://azryon.com/#webpage"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-si",
+      "name": "Azryon SI",
+      "description": "A subsidiary of AZRYON focused on Super Intelligence.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryon.si/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-robotics",
+      "name": "Azryon Robotics",
+      "description": "A subsidiary of AZRYON focused on robotics.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryonrobotics.com/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-capital",
+      "name": "Azryon Capital",
+      "description": "A subsidiary of AZRYON focused on investments.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryoncapital.com/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-space",
+      "name": "Azryon Space",
+      "description": "A subsidiary of AZRYON focused on space.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryonspace.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://azryon.com/#website",
+      "url": "https://azryon.com/",
+      "name": "AZRYON",
+      "publisher": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://azryon.com/#webpage",
+      "url": "https://azryon.com/",
+      "name": "AZRYON — Official Website",
+      "isPartOf": {
+        "@id": "https://azryon.com/#website"
+      },
+      "about": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
   </script>
 
   <title>AZRYON</title>
@@ -467,32 +582,32 @@
     <section class="section" id="focus" aria-labelledby="focus-title">
       <div class="section-head reveal">
         <div>
-          <p class="section-kicker">Areas of focus</p>
+          <p class="section-kicker">Our subsidiaries</p>
           <h2 id="focus-title">Four fields.<br />One direction.</h2>
         </div>
-        <p class="section-intro">AZRYON brings together four areas of focus under one parent identity — connected by a forward-looking vision.</p>
+        <p class="section-intro">AZRYON is a technology holding company bringing together four subsidiaries — Azryon Space, Azryon SI, Azryon Robotics and Azryon Capital.</p>
       </div>
 
       <div class="focus-grid">
         <article class="focus-card reveal">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
-          <h3>Space</h3>
+          <h3>Azryon Space</h3>
           <p>Exploration, technology and opportunities beyond Earth.</p>
         </article>
         <article class="focus-card reveal">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
-          <h3>Super <strong>Intelligence</strong></h3>
-          <p>Connecting systems, capabilities and ideas.</p>
+          <h3>Azryon <strong>SI</strong></h3>
+          <p>Super Intelligence — connecting systems, capabilities and ideas.</p>
         </article>
         <article class="focus-card reveal">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
-          <h3>Robotics</h3>
+          <h3>Azryon Robotics</h3>
           <p>Intelligent machines, automation and next-generation technology.</p>
         </article>
         <article class="focus-card reveal">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
-          <h3>Investments</h3>
-          <p>Recognising potential and supporting long-term possibilities.</p>
+          <h3>Azryon Capital</h3>
+          <p>Investments — recognising potential and supporting long-term possibilities.</p>
         </article>
       </div>
     </section>
