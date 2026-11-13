@@ -1,0 +1,8 @@
+AZRYON subsidiary website URL status
+====================================
+Azryon SI: https://azryon.si/ (included in JSON-LD)
+Azryon Robotics: https://azryonrobotics.com/ (included in JSON-LD)
+Azryon Capital: https://azryoncapital.com/ (included in JSON-LD)
+Azryon Space: https://azryonspace.com/ (included in JSON-LD)
+
+All four full URLs were supplied by AZRYON. Live site availability was not independently verified in this build environment.

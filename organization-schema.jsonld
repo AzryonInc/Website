@@ -1,0 +1,117 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#organization",
+      "name": "AZRYON",
+      "url": "https://azryon.com/",
+      "description": "AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments.",
+      "foundingDate": "2026",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://azryon.com/#logo",
+        "url": "https://azryon.com/icons/android-chrome-512x512.png",
+        "contentUrl": "https://azryon.com/icons/android-chrome-512x512.png",
+        "width": 512,
+        "height": 512,
+        "caption": "AZRYON official logo"
+      },
+      "sameAs": [
+        "https://web.facebook.com/AzryonInc",
+        "https://www.instagram.com/azryoninc",
+        "https://www.youtube.com/@AzryonInc",
+        "https://www.tiktok.com/@azryoninc",
+        "https://x.com/AzryonInc",
+        "https://www.linkedin.com/company/azryoninc"
+      ],
+      "subOrganization": [
+        {
+          "@id": "https://azryon.com/#azryon-si"
+        },
+        {
+          "@id": "https://azryon.com/#azryon-robotics"
+        },
+        {
+          "@id": "https://azryon.com/#azryon-capital"
+        },
+        {
+          "@id": "https://azryon.com/#azryon-space"
+        }
+      ],
+      "knowsAbout": [
+        "Space technology",
+        "Super Intelligence",
+        "Artificial intelligence",
+        "Robotics",
+        "Investments"
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://azryon.com/#webpage"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-si",
+      "name": "Azryon SI",
+      "description": "A subsidiary of AZRYON focused on Super Intelligence.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryon.si/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-robotics",
+      "name": "Azryon Robotics",
+      "description": "A subsidiary of AZRYON focused on robotics.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryonrobotics.com/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-capital",
+      "name": "Azryon Capital",
+      "description": "A subsidiary of AZRYON focused on investments.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryoncapital.com/"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://azryon.com/#azryon-space",
+      "name": "Azryon Space",
+      "description": "A subsidiary of AZRYON focused on space.",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "url": "https://azryonspace.com/"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://azryon.com/#website",
+      "url": "https://azryon.com/",
+      "name": "AZRYON",
+      "publisher": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://azryon.com/#webpage",
+      "url": "https://azryon.com/",
+      "name": "AZRYON — Official Website",
+      "isPartOf": {
+        "@id": "https://azryon.com/#website"
+      },
+      "about": {
+        "@id": "https://azryon.com/#organization"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
