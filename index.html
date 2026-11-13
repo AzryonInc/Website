@@ -11,26 +11,28 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <meta name="mobile-web-app-capable" content="yes" />
   <meta name="msapplication-TileColor" content="#000000" />
-  <meta name="msapplication-config" content="browserconfig.xml" />
+  <meta name="msapplication-config" content="/browserconfig.xml" />
   <meta name="author" content="AZRYON" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
 
   <!-- Official canonical URL -->
   <link rel="canonical" href="https://azryon.com/" />
 
   <!-- Browser favicons and device icons -->
-  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg" />
-  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="48x48" href="icons/favicon-48x48.png" />
-  <link rel="icon" type="image/png" sizes="96x96" href="icons/favicon-96x96.png" />
-  <link rel="shortcut icon" href="favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="icons/apple-touch-icon.png" />
-  <link rel="mask-icon" href="icons/safari-pinned-tab.svg" color="#ffffff" />
-  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Search and social metadata -->
   <meta name="description" content="AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments." />
   <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="AZRYON" />
   <meta property="og:url" content="https://azryon.com/" />
   <meta property="og:title" content="AZRYON" />
@@ -42,6 +44,7 @@
   <meta property="og:image:type" content="image/png" />
   <meta property="og:image:alt" content="AZRYON white geometric mark on a black background" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@AzryonInc" />
   <meta name="twitter:title" content="AZRYON" />
   <meta name="twitter:description" content="AZRYON is a technology holding company with subsidiaries focused on space, super intelligence, robotics and investments." />
   <meta name="twitter:image" content="https://azryon.com/og-image.png" />
@@ -62,8 +65,8 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://azryon.com/#logo",
-        "url": "https://azryon.com/icons/android-chrome-512x512.png",
-        "contentUrl": "https://azryon.com/icons/android-chrome-512x512.png",
+        "url": "https://azryon.com/android-chrome-512x512.png",
+        "contentUrl": "https://azryon.com/android-chrome-512x512.png",
         "width": 512,
         "height": 512,
         "caption": "AZRYON official logo"
@@ -78,16 +81,16 @@
       ],
       "subOrganization": [
         {
-          "@id": "https://azryon.com/#azryon-si"
+          "@id": "https://azryon.si/#organization"
         },
         {
-          "@id": "https://azryon.com/#azryon-robotics"
+          "@id": "https://azryonrobotics.com/#organization"
         },
         {
-          "@id": "https://azryon.com/#azryon-capital"
+          "@id": "https://azryoncapital.com/#organization"
         },
         {
-          "@id": "https://azryon.com/#azryon-space"
+          "@id": "https://azryonspace.com/#organization"
         }
       ],
       "knowsAbout": [
@@ -103,43 +106,43 @@
     },
     {
       "@type": "Organization",
-      "@id": "https://azryon.com/#azryon-si",
+      "@id": "https://azryon.si/#organization",
       "name": "Azryon SI",
+      "url": "https://azryon.si/",
       "description": "A subsidiary of AZRYON focused on Super Intelligence.",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
-      },
-      "url": "https://azryon.si/"
+      }
     },
     {
       "@type": "Organization",
-      "@id": "https://azryon.com/#azryon-robotics",
+      "@id": "https://azryonrobotics.com/#organization",
       "name": "Azryon Robotics",
+      "url": "https://azryonrobotics.com/",
       "description": "A subsidiary of AZRYON focused on robotics.",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
-      },
-      "url": "https://azryonrobotics.com/"
+      }
     },
     {
       "@type": "Organization",
-      "@id": "https://azryon.com/#azryon-capital",
+      "@id": "https://azryoncapital.com/#organization",
       "name": "Azryon Capital",
+      "url": "https://azryoncapital.com/",
       "description": "A subsidiary of AZRYON focused on investments.",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
-      },
-      "url": "https://azryoncapital.com/"
+      }
     },
     {
       "@type": "Organization",
-      "@id": "https://azryon.com/#azryon-space",
+      "@id": "https://azryonspace.com/#organization",
       "name": "Azryon Space",
+      "url": "https://azryonspace.com/",
       "description": "A subsidiary of AZRYON focused on space.",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
-      },
-      "url": "https://azryonspace.com/"
+      }
     },
     {
       "@type": "WebSite",
@@ -168,7 +171,7 @@
 }
   </script>
 
-  <title>AZRYON</title>
+  <title>Azryon</title>
   <style>
     :root {
       color-scheme: dark;
@@ -392,6 +395,10 @@
       border-left: 1px solid var(--white-22);
     }
     .focus-card {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
       position: relative;
       min-height: 238px;
       padding: 31px 34px 35px;
@@ -416,6 +423,7 @@
     }
     .focus-card:hover { background: var(--white-07); }
     .focus-card:hover::before { opacity: 1; transform: scale(1.15); }
+    .focus-card:focus-visible { outline: 2px solid var(--white); outline-offset: 4px; }
     .card-top { display: flex; align-items: center; justify-content: space-between; }
     .card-mark {
       display: grid;
@@ -560,7 +568,7 @@
         <span aria-hidden="true"></span>
       </button>
       <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
-        <a href="#focus">Focus areas</a>
+        <a href="#focus">Subsidiaries</a>
         <a href="#about">About</a>
       </nav>
     </div>
@@ -590,26 +598,26 @@
       </div>
 
       <div class="focus-grid">
-        <article class="focus-card reveal">
+        <a class="focus-card reveal" href="https://azryonspace.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Azryon Space official website">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
           <h3>Azryon Space</h3>
           <p>Exploration, technology and opportunities beyond Earth.</p>
-        </article>
-        <article class="focus-card reveal">
+        </a>
+        <a class="focus-card reveal" href="https://azryon.si/" target="_blank" rel="noopener noreferrer" aria-label="Visit Azryon SI official website">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
           <h3>Azryon <strong>SI</strong></h3>
           <p>Super Intelligence — connecting systems, capabilities and ideas.</p>
-        </article>
-        <article class="focus-card reveal">
+        </a>
+        <a class="focus-card reveal" href="https://azryonrobotics.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Azryon Robotics official website">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
           <h3>Azryon Robotics</h3>
           <p>Intelligent machines, automation and next-generation technology.</p>
-        </article>
-        <article class="focus-card reveal">
+        </a>
+        <a class="focus-card reveal" href="https://azryoncapital.com/" target="_blank" rel="noopener noreferrer" aria-label="Visit Azryon Capital official website">
           <div class="card-top"><span class="card-mark" aria-hidden="true">↗</span></div>
           <h3>Azryon Capital</h3>
           <p>Investments — recognising potential and supporting long-term possibilities.</p>
-        </article>
+        </a>
       </div>
     </section>
 
