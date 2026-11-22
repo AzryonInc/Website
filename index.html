@@ -1921,6 +1921,146 @@
     /* Match the muted second-line treatment used by the statement and contact headings. */
     .section-head h2 span { color: var(--white-45); }
 
+  
+
+    /* Hero split layout and cinematic, full-resolution video treatment. */
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
+      align-items: center;
+      gap: clamp(32px, 4.8vw, 78px);
+      padding: 172px 0 92px;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      min-width: 0;
+    }
+
+    .hero-title { max-width: 680px; }
+
+    .hero-visual {
+      position: relative;
+      z-index: 0;
+      width: 100%;
+      max-width: 720px;
+      justify-self: end;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      isolation: isolate;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 4px;
+      background: #030405;
+      box-shadow: 0 28px 82px rgba(0, 0, 0, .56),
+                  0 0 72px rgba(222, 133, 78, .10);
+      opacity: 0;
+      transform: translate3d(0, 22px, 0) scale(.985);
+      animation: hero-visual-reveal 1.35s var(--ease) .24s both;
+    }
+
+    .hero-visual::before {
+      position: absolute;
+      z-index: -1;
+      inset: 10% -6%;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(233, 145, 87, .23) 0%, rgba(108, 67, 48, .10) 42%, transparent 72%);
+      content: "";
+      filter: blur(38px);
+      pointer-events: none;
+    }
+
+    .hero-visual::after {
+      position: absolute;
+      inset: 9px;
+      border: 1px solid rgba(255, 255, 255, .075);
+      border-radius: 2px;
+      content: "";
+      pointer-events: none;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      border-radius: inherit;
+      background: #030405;
+      object-fit: contain;
+    }
+
+    @keyframes hero-visual-reveal {
+      from { opacity: 0; transform: translate3d(0, 26px, 0) scale(.985); }
+      to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+    }
+
+    @media (max-width: 900px) and (min-width: 701px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .94fr);
+        gap: clamp(22px, 3vw, 34px);
+        padding-top: 150px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        padding: 120px 0 58px;
+      }
+      .hero-copy { max-width: 560px; }
+      .hero-visual {
+        width: min(100%, 560px);
+        max-width: none;
+        justify-self: start;
+        margin-top: 38px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-visual {
+        opacity: 1;
+        transform: none;
+        animation: none !important;
+      }
+    }
+
+
+
+    .hero-video-toggle {
+      position: absolute;
+      z-index: 2;
+      top: 14px;
+      right: 14px;
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      padding: 0;
+      border: 1px solid rgba(255, 255, 255, .28);
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .56);
+      color: var(--white);
+      cursor: pointer;
+      opacity: .78;
+      backdrop-filter: blur(8px);
+      transition: opacity .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .hero-video-toggle:hover,
+    .hero-video-toggle:focus-visible {
+      border-color: rgba(255, 255, 255, .72);
+      background: rgba(0, 0, 0, .82);
+      opacity: 1;
+    }
+    .hero-video-toggle:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
+    .hero-video-toggle span { font-size: 13px; font-weight: 700; line-height: 1; }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video-toggle { transition: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -1942,13 +2082,23 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-inner">
-        <h1 id="hero-title" class="hero-title">
-          <span class="hero-title-line">Expanding</span>
-          <span class="hero-title-line">the possible</span>
-        </h1>
-        <p class="hero-subtitle">Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.</p>
-        <div class="hero-bottom">
-          <a class="text-link" href="#focus">Explore <span aria-hidden="true">→</span></a>
+        <div class="hero-copy">
+          <h1 id="hero-title" class="hero-title">
+            <span class="hero-title-line">Expanding</span>
+            <span class="hero-title-line">the possible</span>
+          </h1>
+          <p class="hero-subtitle">Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.</p>
+          <div class="hero-bottom">
+            <a class="text-link" href="#focus">Explore <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <div class="hero-visual" role="group" aria-label="Animated black hole visual">
+          <video class="hero-video" muted playsinline loop preload="metadata" poster="assets/azryon-hero-poster.jpg" tabindex="-1" aria-hidden="true" width="1920" height="1080">
+            <source src="assets/azryon-black-hole.mp4" type="video/mp4">
+          </video>
+          <button class="hero-video-toggle" type="button" aria-label="Play hero animation" aria-pressed="false">
+            <span aria-hidden="true">▶</span>
+          </button>
         </div>
       </div>
     </section>
@@ -2068,6 +2218,45 @@
     const siteHeader = document.querySelector('.site-header');
     const menuButton = document.querySelector('.menu-button');
     const navigation = document.querySelector('.nav-links');
+
+    // Keep the hero animation silent and respect the visitor's reduced-motion setting.
+    const heroVideo = document.querySelector('.hero-video');
+    const heroVideoToggle = document.querySelector('.hero-video-toggle');
+    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const updateHeroVideoToggle = () => {
+      if (!heroVideo || !heroVideoToggle) return;
+      const isPlaying = !heroVideo.paused;
+      heroVideoToggle.setAttribute('aria-pressed', String(isPlaying));
+      heroVideoToggle.setAttribute('aria-label', isPlaying ? 'Pause hero animation' : 'Play hero animation');
+      heroVideoToggle.querySelector('span').textContent = isPlaying ? 'Ⅱ' : '▶';
+    };
+    const syncHeroVideoMotion = () => {
+      if (!heroVideo) return;
+      if (motionPreference.matches) {
+        heroVideo.pause();
+        updateHeroVideoToggle();
+      } else {
+        heroVideo.play().then(updateHeroVideoToggle).catch(updateHeroVideoToggle);
+      }
+    };
+    if (heroVideo && heroVideoToggle) {
+      heroVideo.addEventListener('play', updateHeroVideoToggle);
+      heroVideo.addEventListener('pause', updateHeroVideoToggle);
+      heroVideoToggle.addEventListener('click', () => {
+        if (heroVideo.paused) {
+          heroVideo.play().then(updateHeroVideoToggle).catch(updateHeroVideoToggle);
+        } else {
+          heroVideo.pause();
+          updateHeroVideoToggle();
+        }
+      });
+    }
+    syncHeroVideoMotion();
+    if (motionPreference.addEventListener) {
+      motionPreference.addEventListener('change', syncHeroVideoMotion);
+    } else if (motionPreference.addListener) {
+      motionPreference.addListener(syncHeroVideoMotion);
+    }
 
     const closeMobileMenu = () => {
       navigation.classList.remove('is-open');
