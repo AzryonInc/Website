@@ -6,7 +6,9 @@ This repository contains the static AZRYON company website and the image, favico
 
 - `index.html` — homepage, SEO metadata, and the single JSON-LD graph for AZRYON, its founder, subsidiaries, website, and homepage.
 - `CNAME` — custom domain file for `azryon.com`. Keep it in the publishing root.
-- `azryon-logo.png` — official square AZRYON mark used by the homepage and Organization structured data.
+- `azryon-header-wordmark.png` — the supplied transparent AZRYON wordmark, retained as a standalone asset copy.
+- The homepage header and footer embed the exact supplied PNG data directly in `index.html`, so the logo still appears when `index.html` is opened locally by itself and does not depend on a separate image path.
+- `azryon-logo.png` — the existing square AZRYON mark, retained for Organization structured data; it is not used as the visible header or footer logo.
 - `favicon-96x96.png` and `favicon.ico` — website favicon assets.
 - `og-image.png` — Open Graph and X/Twitter sharing image.
 - `site.webmanifest` — web-app metadata and icon declarations.
@@ -99,6 +101,7 @@ The homepage loads one third-party script from Google Tag Manager (`googletagman
 Open these URLs and confirm they return the expected content:
 
 - `https://azryon.com/`
+- `https://azryon.com/azryon-header-wordmark.png`
 - `https://azryon.com/azryon-logo.png`
 - `https://azryon.com/favicon-96x96.png`
 - `https://azryon.com/favicon.ico`
