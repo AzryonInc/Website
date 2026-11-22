@@ -14,11 +14,11 @@
       "logo": {
         "@type": "ImageObject",
         "@id": "https://azryon.com/#logo",
-        "url": "https://azryon.com/og-image.png",
-        "contentUrl": "https://azryon.com/og-image.png",
-        "width": 2427,
-        "height": 2427,
-        "caption": "Azryon official wordmark"
+        "url": "https://azryon.com/azryon-logo.png",
+        "contentUrl": "https://azryon.com/azryon-logo.png",
+        "width": 1254,
+        "height": 1254,
+        "caption": "Azryon official symbol logo on its original black square background"
       },
       "image": {
         "@id": "https://azryon.com/#logo"

@@ -1,20 +1,22 @@
 # AZRYON package verification report
 
-Local checks completed for this package:
+## Local package checks
 
-- ZIP archive integrity: passed.
-- Homepage: one embedded JSON-LD script; JSON parses successfully.
-- Standalone `organization-schema.jsonld`: JSON parses successfully and exactly matches the embedded graph.
-- Entity graph: 8 unique nodes (parent Organization, founder Person, four subsidiary Organizations, WebSite, WebPage).
-- Founder `worksFor` and parent/subsidiary links: internally consistent.
-- Logo image dimensions: verified from the bundled file as 2427 × 2427; schema dimensions match.
-- Social preview image dimensions: verified as 1200 × 630; Open Graph metadata references this image and matches its dimensions.
-- Local favicon, Apple touch icon, PWA icon and social image files referenced by the package: present.
-- Existing website layout and CSS: retained; changes were limited to schema, metadata asset references/descriptions, manifest description, and documentation.
+- ZIP integrity: passed.
+- Original uploaded logo retained byte-for-byte in `azryon-logo.png` and `brand-source/azryon-original-logo.png` (1254 × 1254 PNG).
+- Header and footer each reference `/azryon-logo.png`; visible page layout and text were otherwise retained.
+- Exactly one homepage `rel="icon"` declaration is present, pointing to `/favicon-96x96.png` (96 × 96 PNG).
+- Root `favicon.ico` is a valid multi-resolution ICO with ten square sizes: 16, 32, 48, 64, 96, 128, 144, 192, 240 and 256 px.
+- Apple touch icon: 180 × 180 PNG.
+- Manifest: valid JSON; all four referenced Android/PWA icons exist and match their declared dimensions.
+- Organization structured-data logo points to `/azryon-logo.png`, is 1254 × 1254, and meets Google's documented 112 × 112 minimum dimension.
+- Embedded and standalone JSON-LD graphs parse and match.
+- Open Graph and X/Twitter metadata point to `/og-image.png`; actual image is 1200 × 630 and matches the metadata dimensions.
+- `robots.txt` allows crawling and declares `https://azryon.com/sitemap.xml`.
+- Obsolete Windows tiles, unused SVG favicon/mark copies and duplicate favicon/social-square images removed.
 
-Not verified in this local build:
+## Not verified from this local build
 
-- Live DNS/HTTP accessibility of `azryon.com` or the subsidiary/founder domains.
-- Whether the supplied legal name, mailing country, email address, founder details, and profile URLs are externally verified; these are included as supplied by the site owner.
-- Google's live Rich Results Test, Search Console URL Inspection, indexing, or Knowledge Panel display. These require the site to be published.
-- A Knowledge Panel or specific search appearance is not guaranteed by structured data.
+- Live HTTP status, MIME type, redirects, caching and crawlability of the deployed assets. This execution environment could read the public homepage in web search but could not directly retrieve the binary favicon endpoints to verify their live response.
+- Googlebot/Googlebot-Image access after deployment, Search Console live test, the next Google recrawl, or the displayed favicon/logo in actual Search results.
+- Google may take time to refresh a favicon and does not guarantee a particular favicon or organization logo display, even when requirements are met.
