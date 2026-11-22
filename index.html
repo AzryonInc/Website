@@ -1921,91 +1921,65 @@
     /* Match the muted second-line treatment used by the statement and contact headings. */
     .section-head h2 span { color: var(--white-45); }
 
-  
-
-    /* Azryon hero: natural black-level treatment for a seamless, full-frame video blend. */
-    .hero {
-      position: relative;
-      isolation: isolate;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .hero-visual {
+    /* Hero background animation: full-height, right-weighted, with the original video untouched. */
+    .hero-background-video {
       position: absolute;
+      top: 0;
+      right: 0;
       z-index: 0;
-      top: 50%;
-      right: max(24px, calc((100vw - 1680px) / 2));
-      width: min(70vw, 1240px, 156vh);
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
-      pointer-events: none;
-      transform: translateY(-50%);
-      background: #000;
-      isolation: isolate;
-    }
-
-    /*
-      The source has a subtle navy tint in its shadows. A contrast curve pushes only
-      those low levels toward black while keeping the luminous event horizon vivid.
-      The overlay then feathers the video edges into the page instead of leaving a
-      visible rectangular frame. The actual 4K video is not edited or re-encoded.
-    */
-    .hero-video {
       display: block;
-      width: 100%;
+      width: auto;
       height: 100%;
+      max-width: none;
+      aspect-ratio: 16 / 9;
       object-fit: contain;
-      object-position: center center;
-      background: #000;
-      filter: brightness(.95) contrast(1.34);
-    }
-
-    .hero-visual::after {
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      content: "";
+      object-position: right center;
       pointer-events: none;
-      background:
-        linear-gradient(90deg,
-          #000 0%,
-          rgba(0, 0, 0, .90) 8%,
-          rgba(0, 0, 0, .58) 21%,
-          rgba(0, 0, 0, .20) 37%,
-          transparent 54%),
-        linear-gradient(180deg,
-          rgba(0, 0, 0, .38) 0%,
-          transparent 22%,
-          transparent 78%,
-          rgba(0, 0, 0, .52) 100%),
-        linear-gradient(270deg,
-          rgba(0, 0, 0, .22) 0%,
-          transparent 12%);
-    }
-
-    .hero-inner {
-      z-index: 2;
-    }
-
-    @media (max-width: 900px) {
-      .hero-visual {
-        right: 0;
-        width: min(88vw, 1240px, 156vh);
-      }
+      user-select: none;
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 34%,
+        rgba(0, 0, 0, .18) 43%,
+        rgba(0, 0, 0, .72) 56%,
+        #000 64%,
+        #000 100%
+      );
+      mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        transparent 34%,
+        rgba(0, 0, 0, .18) 43%,
+        rgba(0, 0, 0, .72) 56%,
+        #000 64%,
+        #000 100%
+      );
     }
 
     @media (max-width: 700px) {
-      .hero-visual {
+      .hero-background-video {
         top: auto;
         right: 0;
-        bottom: 4.5%;
-        width: min(100vw, 156vh);
-        transform: none;
-      }
-
-      .hero-inner {
-        padding: 118px 0 clamp(210px, 55vw, 248px);
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        aspect-ratio: 16 / 9;
+        object-fit: contain;
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 0, 0, .25) 22%,
+          #000 48%,
+          #000 100%
+        );
+        mask-image: linear-gradient(
+          to right,
+          transparent 0%,
+          rgba(0, 0, 0, .25) 22%,
+          #000 48%,
+          #000 100%
+        );
       }
     }
 
@@ -2029,11 +2003,10 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-visual" aria-hidden="true">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1">
-          <source src="assets/azryon-black-hole-4k.mp4" type="video/mp4" />
-        </video>
-      </div>
+
+      <video class="hero-background-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1" disablepictureinpicture>
+        <source src="assets/azryon-black-hole-4k.mp4" type="video/mp4" />
+      </video>
       <div class="hero-inner">
         <h1 id="hero-title" class="hero-title">
           <span class="hero-title-line">Expanding</span>
