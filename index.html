@@ -1923,59 +1923,62 @@
 
   
 
-    /* Azryon hero: soft navy atmosphere with the original black-hole footage kept crisp. */
+    /* Azryon hero: robust full-section video layer with a soft navy atmosphere. */
     .hero {
       position: relative;
       isolation: isolate;
       overflow: hidden;
-      background: #000;
+      background: #020713;
     }
 
-    /* A gentle, out-of-focus blue glow lives behind the video, never on top of it. */
+    /* The blue haze sits behind both the footage and the text. */
     .hero::before {
       position: absolute;
       z-index: 0;
-      inset: -14%;
+      inset: -16%;
       content: "";
       pointer-events: none;
-      background: radial-gradient(ellipse at 77% 48%,
-        rgba(42, 83, 148, .24) 0%,
-        rgba(16, 38, 78, .13) 30%,
-        transparent 66%);
-      filter: blur(54px);
+      background: radial-gradient(ellipse at 76% 48%,
+        rgba(48, 91, 160, .30) 0%,
+        rgba(20, 43, 86, .17) 34%,
+        transparent 68%);
+      filter: blur(58px);
       transform: scale(1.04);
     }
 
+    /*
+      Keep the wrapper full-size and position the video itself. This avoids
+      percentage/intrinsic-size collapse in some responsive browser layouts.
+      The source remains the original 3840x2160, 60fps MP4.
+    */
     .hero-visual {
       position: absolute;
       z-index: 1;
-      top: 50%;
-      right: max(24px, calc((100vw - 1680px) / 2));
-      width: min(70vw, 1240px, 156vh);
-      aspect-ratio: 16 / 9;
+      inset: 0;
       overflow: hidden;
       pointer-events: none;
-      transform: translateY(-50%);
-      background: #000;
+      background: transparent;
       isolation: isolate;
     }
 
-    /*
-      Keep the source video untouched. A mild lift and gentler contrast restore
-      faint accretion-disc strands and the event-horizon rim without washing out
-      the black centre. The 4K/60fps animation is not re-encoded or altered.
-    */
     .hero-video {
+      position: absolute;
+      z-index: 0;
       display: block;
-      width: 100%;
-      height: 100%;
+      top: 50%;
+      right: max(24px, calc((100vw - 1680px) / 2));
+      width: min(82vw, 1560px, 156vh);
+      height: auto;
+      max-height: 88vh;
+      aspect-ratio: 16 / 9;
       object-fit: contain;
       object-position: center center;
-      background: #000;
-      filter: brightness(1.08) contrast(1.12) saturate(1.08);
+      background: transparent;
+      filter: brightness(1.08) contrast(1.10) saturate(1.08);
+      transform: translateY(-50%);
     }
 
-    /* Keep text-side blending, but avoid dark masks over the luminous horizon. */
+    /* Fade only the text-side edge; do not darken the event horizon. */
     .hero-visual::after {
       position: absolute;
       z-index: 1;
@@ -1984,19 +1987,15 @@
       pointer-events: none;
       background:
         linear-gradient(90deg,
-          #000 0%,
-          rgba(0, 0, 0, .78) 10%,
-          rgba(0, 0, 0, .46) 25%,
-          rgba(0, 0, 0, .12) 42%,
-          transparent 56%),
+          #020713 0%,
+          rgba(2, 7, 19, .88) 13%,
+          rgba(2, 7, 19, .38) 28%,
+          transparent 48%),
         linear-gradient(180deg,
-          rgba(0, 0, 0, .16) 0%,
-          transparent 18%,
-          transparent 82%,
-          rgba(0, 0, 0, .22) 100%),
-        linear-gradient(270deg,
-          rgba(0, 0, 0, .10) 0%,
-          transparent 12%);
+          rgba(2, 7, 19, .12) 0%,
+          transparent 16%,
+          transparent 84%,
+          rgba(2, 7, 19, .18) 100%);
     }
 
     .hero-inner {
@@ -2004,18 +2003,20 @@
     }
 
     @media (max-width: 900px) {
-      .hero-visual {
+      .hero-video {
         right: 0;
-        width: min(88vw, 1240px, 156vh);
+        width: min(96vw, 1360px, 156vh);
+        max-height: 66vh;
       }
     }
 
     @media (max-width: 700px) {
-      .hero-visual {
+      .hero-video {
         top: auto;
         right: 0;
         bottom: 4.5%;
         width: min(100vw, 156vh);
+        max-height: none;
         transform: none;
       }
 
@@ -2045,8 +2046,8 @@
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-visual" aria-hidden="true">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/hero-black-hole-poster.jpg" disablepictureinpicture tabindex="-1">
-          <source src="assets/hero-black-hole-4k.mp4" type="video/mp4" />
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="./assets/hero-black-hole-poster.jpg" disablepictureinpicture tabindex="-1">
+          <source src="./assets/hero-black-hole-4k.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="hero-inner">
