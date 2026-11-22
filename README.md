@@ -1,32 +1,35 @@
-# Azryon website
+# Azryon Website
 
-Static website for [Azryon](https://azryon.com), hosted with GitHub Pages.
+The official Azryon website: <https://azryon.com>.
 
-## Repository contents
+This repository contains the static website published with GitHub Pages.
 
-- `index.html` — homepage, styles, scripts, SEO metadata, and structured data. The transparent wordmark used in the header and footer is embedded in the HTML, so it does not rely on a separate image path.
-- `CNAME` — custom domain (`azryon.com`). Keep this file in the publishing root.
-- `azryon-header-wordmark.png` and `azryon-logo.png` — standalone logo assets.
-- `favicon.ico`, `favicon-96x96.png`, `og-image.png`, and `icons/` — browser, sharing, and app icons.
-- `site.webmanifest`, `robots.txt`, and `sitemap.xml` — web-app and search-engine metadata.
-- `FONT-LICENSES.md` — licensing information for the D-DIN fonts.
+## Project files
 
-The site uses D-DIN Regular and D-DIN Bold. The font files load from jsDelivr, so an internet connection is needed to display D-DIN; otherwise, the page uses its fallback fonts.
+- `index.html` — homepage, styles, scripts, metadata, and structured data. The transparent wordmark shown in the header and footer is embedded directly in this file.
+- `CNAME` — custom domain configuration for `azryon.com`.
+- `azryon-logo.png` — square organization logo used by the structured data.
+- `favicon.ico` and `favicon-96x96.png` — browser favicon assets.
+- `icons/` — Apple Touch Icon and Android web-app icons referenced by the page and web manifest.
+- `og-image.png` — social sharing image.
+- `site.webmanifest` — web-app name, display settings, and icon declarations.
+- `robots.txt` and `sitemap.xml` — search crawler instructions and the public homepage sitemap.
+- `FONT-LICENSES.md` — D-DIN font source and license information.
 
-## Publish with GitHub Pages
+## Local preview
 
-1. Upload the **contents** of the website folder to the repository's publishing root. Do not upload the ZIP file or put the files inside an extra nested folder.
+Open `index.html` in a web browser. An internet connection is needed to load the D-DIN fonts and other configured third-party resources. The page uses fallback fonts if the font CDN is unavailable.
+
+## Deploy with GitHub Pages
+
+1. Upload the **contents** of the `Azryon` folder to the repository's publishing root. Do not upload the ZIP file or add an extra nested folder.
 2. Keep `CNAME` in the publishing root.
-3. In **Settings → Pages**, select the branch and `/ (root)` folder used to publish the site.
-4. Confirm that `azryon.com` is set as the custom domain and enable **Enforce HTTPS** when it becomes available.
-5. Commit and push the changes, then open [https://azryon.com](https://azryon.com) to check the published site.
+3. In **Settings → Pages**, select the publishing branch and `/ (root)` folder, or the folder configured for the site.
+4. Confirm that `azryon.com` is the custom domain and enable **Enforce HTTPS** when it becomes available.
+5. Visit <https://azryon.com> after deployment and check the homepage, icons, and social sharing preview.
 
-When uploading through GitHub's web interface, replacing files does not remove older files that are no longer in the package. Delete obsolete files from the repository separately after confirming they are not used by the current site.
-
-## Preview locally
-
-Open `index.html` in a browser. The header and footer wordmark is embedded in the page. An internet connection is required for the D-DIN fonts; fallback fonts are used when they cannot be loaded.
+When uploading through GitHub's web interface, files that are not included in the upload are not automatically deleted. Remove obsolete files separately from the repository when appropriate.
 
 ## Security
 
-This is a static public website. Do not commit passwords, API keys, access tokens, private documents, or other confidential information. Anything included in the website's HTML, CSS, JavaScript, or public assets can be viewed by visitors.
+This is a public static website. Do not publish passwords, API keys, access tokens, private documents, or other confidential information. Anything included in the website or a public repository can be viewed by others.
