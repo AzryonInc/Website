@@ -1921,116 +1921,62 @@
     /* Match the muted second-line treatment used by the statement and contact headings. */
     .section-head h2 span { color: var(--white-45); }
 
+  
 
-
-    /* AZRYON black-hole hero: keep the original 4K video and blend its near-black pixels into the page. */
+    /* Azryon hero: full-frame 4K black-hole video, blended into the pure-black canvas. */
     .hero {
       position: relative;
       isolation: isolate;
-      overflow: hidden;
-      background: #000000 !important;
+      background: #000;
     }
+
     .hero-visual {
       position: absolute;
       z-index: 0;
       top: 50%;
-      right: -5vw;
-      width: min(88vw, 1540px);
+      right: max(24px, calc((100vw - 1680px) / 2));
+      width: min(70vw, 1240px, 156vh);
       aspect-ratio: 16 / 9;
-      overflow: visible;
+      overflow: hidden;
       pointer-events: none;
-      transform-origin: 58% 50%;
-      animation: azryon-hero-orbit 22s ease-in-out infinite;
-      will-change: transform;
-      opacity: 1;
+      transform: translateY(-50%);
+      /* Fade only the dark left edge into the page; the event-horizon animation stays untouched. */
+      -webkit-mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .25) 8%, #000 24%);
+      mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, .25) 8%, #000 24%);
     }
-    .hero-visual-video {
+
+    .hero-video {
       display: block;
       width: 100%;
       height: 100%;
       object-fit: contain;
-      object-position: center;
-      background: #000000;
-      /* The source has a very dark navy background rather than true #000.
-         This contrast curve crushes only those near-black pixels so Screen
-         blending makes the rectangular video frame disappear into the page. */
-      filter: contrast(1.6) saturate(1.05);
-      mix-blend-mode: screen;
-      -webkit-mask-image: linear-gradient(90deg,
-        transparent 0%,
-        rgba(0,0,0,.08) 8%,
-        rgba(0,0,0,.48) 20%,
-        rgba(0,0,0,.88) 31%,
-        #000 39%,
-        #000 100%);
-      mask-image: linear-gradient(90deg,
-        transparent 0%,
-        rgba(0,0,0,.08) 8%,
-        rgba(0,0,0,.48) 20%,
-        rgba(0,0,0,.88) 31%,
-        #000 39%,
-        #000 100%);
+      object-position: center center;
+      background: transparent;
     }
-    .hero::before {
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      content: "";
-      pointer-events: none;
-      background: linear-gradient(90deg,
-        #000 0%,
-        #000 25%,
-        rgba(0,0,0,.96) 38%,
-        rgba(0,0,0,.76) 49%,
-        rgba(0,0,0,.30) 66%,
-        rgba(0,0,0,.06) 82%,
-        transparent 100%);
+
+    .hero-inner {
+      z-index: 2;
     }
-    .hero-inner { position: relative; z-index: 2; }
-    @keyframes azryon-hero-orbit {
-      0%, 100% {
-        transform: translateY(-50%) perspective(1500px) rotateY(-3.5deg) rotateZ(-.35deg) scale(1);
-      }
-      50% {
-        transform: translateY(calc(-50% - 7px)) perspective(1500px) rotateY(3.5deg) rotateZ(.35deg) scale(1.012);
+
+    @media (max-width: 900px) {
+      .hero-visual {
+        right: 0;
+        width: min(88vw, 1240px, 156vh);
       }
     }
-    @media (max-width: 1100px) {
-      .hero-visual { right: -7vw; width: 94vw; }
-      .hero::before {
-        background: linear-gradient(90deg,
-          #000 0%,
-          #000 24%,
-          rgba(0,0,0,.96) 39%,
-          rgba(0,0,0,.74) 53%,
-          rgba(0,0,0,.25) 72%,
-          transparent 100%);
-      }
-    }
+
     @media (max-width: 700px) {
       .hero-visual {
-        top: 72%;
-        right: -11vw;
-        width: 120vw;
-        opacity: 1;
-        animation-duration: 26s;
+        top: auto;
+        right: 0;
+        bottom: 4.5%;
+        width: min(100vw, 156vh);
+        transform: none;
       }
-      .hero-visual-video {
-        -webkit-mask-image: linear-gradient(90deg, rgba(0,0,0,.25) 0%, #000 28%, #000 100%);
-        mask-image: linear-gradient(90deg, rgba(0,0,0,.25) 0%, #000 28%, #000 100%);
+
+      .hero-inner {
+        padding: 118px 0 clamp(210px, 55vw, 248px);
       }
-      .hero::before {
-        background: linear-gradient(180deg,
-          #000 0%,
-          rgba(0,0,0,.99) 42%,
-          rgba(0,0,0,.88) 55%,
-          rgba(0,0,0,.18) 88%,
-          transparent 100%);
-      }
-      .hero-inner { z-index: 2; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .hero-visual { animation: none !important; transform: translateY(-50%); }
     }
 
   </style>
@@ -2053,21 +1999,12 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-            <div class="hero-visual" aria-hidden="true">
-        <video
-          class="hero-visual-video"
-          autoplay
-          muted
-          loop
-          playsinline
-          preload="auto"
-          disablepictureinpicture
-          aria-hidden="true"
-        >
-          <source src="./assets/azryon-blackhole-4k.mp4" type="video/mp4" />
+      <div class="hero-visual" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1">
+          <source src="assets/azryon-black-hole-4k.mp4" type="video/mp4" />
         </video>
       </div>
-<div class="hero-inner">
+      <div class="hero-inner">
         <h1 id="hero-title" class="hero-title">
           <span class="hero-title-line">Expanding</span>
           <span class="hero-title-line">the possible</span>
@@ -2191,35 +2128,6 @@
   </div>
 
   <script>
-
-    // Start the silent decorative hero video as soon as the browser can play it.
-    // If autoplay is restricted by device settings, retry after the first user gesture.
-    const azryonHeroVideo = document.querySelector('.hero-visual-video');
-    if (azryonHeroVideo) {
-      azryonHeroVideo.muted = true;
-      azryonHeroVideo.defaultMuted = true;
-      azryonHeroVideo.playsInline = true;
-
-      let interactionRetryAdded = false;
-      const startAzryonHeroVideo = () => {
-        const playPromise = azryonHeroVideo.play();
-        if (playPromise && typeof playPromise.catch === 'function') {
-          playPromise.catch(() => {
-            if (interactionRetryAdded) return;
-            interactionRetryAdded = true;
-            const retryPlayback = () => {
-              azryonHeroVideo.play().catch(() => {});
-            };
-            document.addEventListener('pointerdown', retryPlayback, { once: true, passive: true });
-            document.addEventListener('keydown', retryPlayback, { once: true });
-          });
-        }
-      };
-
-      azryonHeroVideo.addEventListener('canplay', startAzryonHeroVideo, { once: true });
-      startAzryonHeroVideo();
-    }
-
     const siteHeader = document.querySelector('.site-header');
     const menuButton = document.querySelector('.menu-button');
     const navigation = document.querySelector('.nav-links');
