@@ -2014,8 +2014,8 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-video { visibility: hidden; }
-      .hero-media { background: #05070b url("assets/hero-video-poster.jpg") center / cover no-repeat; }
+      /* Keep the first frame of the video visible; JavaScript pauses playback. */
+      .hero-media { background: #05070b; }
     }
 
   </style>
@@ -2046,10 +2046,9 @@
           loop
           playsinline
           preload="metadata"
-          poster="assets/hero-video-poster.jpg"
           tabindex="-1"
         >
-          <source src="azryon-black-hole-4k.mp4" type="video/mp4" />
+          <source src="assets/azryon-black-hole-4k.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="hero-inner">
@@ -2177,8 +2176,12 @@
 
   <script>
     const heroVideo = document.querySelector('.hero-video');
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) {
       heroVideo?.pause();
+    } else {
+      // Retry muted autoplay after the page is ready; browsers may defer the initial request.
+      heroVideo?.play().catch(() => {});
     }
 
     const siteHeader = document.querySelector('.site-header');
