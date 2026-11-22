@@ -1337,6 +1337,7 @@
     }
     .whatsapp-float {
       display: grid;
+      text-decoration: none;
       width: 46px;
       height: 46px;
       flex: 0 0 46px;
@@ -1348,12 +1349,11 @@
       color: var(--white);
       box-shadow: 0 5px 22px rgba(0, 0, 0, .32);
       opacity: .96;
-      cursor: not-allowed;
+      cursor: pointer;
       -webkit-appearance: none;
       appearance: none;
       transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease, opacity .2s ease;
     }
-    .whatsapp-float:disabled { pointer-events: none; }
     .whatsapp-float-icon {
       display: block;
       width: 21px;
@@ -1923,142 +1923,300 @@
 
   
 
-    /* Hero split layout and cinematic, full-resolution video treatment. */
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1.04fr) minmax(0, .96fr);
-      align-items: center;
-      gap: clamp(32px, 4.8vw, 78px);
-      padding: 172px 0 92px;
-    }
-
-    .hero-copy {
-      position: relative;
-      z-index: 1;
-      min-width: 0;
-    }
-
-    .hero-title { max-width: 680px; }
-
-    .hero-visual {
-      position: relative;
-      z-index: 0;
-      width: 100%;
-      max-width: 720px;
-      justify-self: end;
-      aspect-ratio: 16 / 9;
-      overflow: hidden;
+    /* Cinematic hero motion: keep the headline clear while the live visual anchors the right side. */
+    .hero {
       isolation: isolate;
-      border: 1px solid rgba(255, 255, 255, .18);
-      border-radius: 4px;
-      background: #030405;
-      box-shadow: 0 28px 82px rgba(0, 0, 0, .56),
-                  0 0 72px rgba(222, 133, 78, .10);
-      opacity: 0;
-      transform: translate3d(0, 22px, 0) scale(.985);
-      animation: hero-visual-reveal 1.35s var(--ease) .24s both;
+      background: #000;
     }
-
-    .hero-visual::before {
+    .hero-media {
       position: absolute;
-      z-index: -1;
-      inset: 10% -6%;
-      border-radius: 50%;
-      background: radial-gradient(ellipse, rgba(233, 145, 87, .23) 0%, rgba(108, 67, 48, .10) 42%, transparent 72%);
-      content: "";
-      filter: blur(38px);
+      z-index: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: min(72%, 1220px);
+      overflow: hidden;
       pointer-events: none;
+      background: #000;
     }
-
-    .hero-visual::after {
+    .hero-media video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.92) contrast(1.04);
+    }
+    .hero::before {
       position: absolute;
-      inset: 9px;
-      border: 1px solid rgba(255, 255, 255, .075);
-      border-radius: 2px;
+      z-index: 1;
+      inset: 0;
       content: "";
       pointer-events: none;
+      background:
+        linear-gradient(90deg, #000 0%, #000 23%, rgba(0, 0, 0, .97) 36%, rgba(0, 0, 0, .76) 50%, rgba(0, 0, 0, .22) 72%, rgba(0, 0, 0, .12) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, .38) 0%, transparent 30%, transparent 72%, rgba(0, 0, 0, .28) 100%);
+    }
+    .hero-inner {
+      z-index: 2;
+    }
+    .hero-title {
+      max-width: 700px;
+    }
+    @media (max-width: 700px) {
+      .hero-media {
+        inset: 0;
+        width: 100%;
+        opacity: .62;
+      }
+      .hero-media video {
+        object-position: 55% center;
+      }
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, .78) 0%, rgba(0, 0, 0, .62) 58%, rgba(0, 0, 0, .54) 100%),
+          linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .10) 42%, rgba(0, 0, 0, .34) 100%);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media video { visibility: hidden; }
+    }
+    .hero-media { background: #000; }
+    .hero-poster {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.92) contrast(1.04);
+    }
+    .hero-media video {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .hero-media video.is-unavailable { visibility: hidden; }
+    /* Keep copy visible even when a browser blocks CSS animations. */
+    .hero-title, .hero-subtitle, .hero-bottom { opacity: 1; }
+    @media (max-width: 700px) {
+      .hero-poster { object-position: 55% center; }
     }
 
-    .hero-video {
+  
+
+    /* AZRYON black-hole hero: full-bleed, original 4K motion on a deep-black canvas. */
+    .hero {
+      isolation: isolate;
+      background: #000 !important;
+    }
+    .hero-media {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+      background: #000;
+      opacity: 1;
+    }
+    .hero-media .hero-poster,
+    .hero-media video {
       position: absolute;
       inset: 0;
       display: block;
       width: 100%;
       height: 100%;
-      border: 0;
-      border-radius: inherit;
-      background: #030405;
-      object-fit: contain;
+      object-fit: cover;
+      object-position: 61% center;
+      background: #000;
+      transform: scale(1.055);
+      transform-origin: 61% center;
+      filter: brightness(.90) contrast(1.08) saturate(.86);
+    }
+    .hero-media .hero-poster { z-index: 0; }
+    .hero-media video { z-index: 1; }
+    .hero::before {
+      position: absolute;
+      z-index: 1;
+      inset: 0;
+      content: "";
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, #000 0%, #000 19%, rgba(0, 0, 0, .98) 30%, rgba(0, 0, 0, .88) 41%, rgba(0, 0, 0, .56) 53%, rgba(0, 0, 0, .17) 69%, rgba(0, 0, 0, .02) 100%),
+        linear-gradient(0deg, rgba(0, 0, 0, .42) 0%, transparent 26%, transparent 77%, rgba(0, 0, 0, .30) 100%);
+    }
+    .hero-inner { z-index: 2; }
+    .hero-title { max-width: 760px; }
+
+    @media (max-width: 700px) {
+      .hero-media { inset: 0; width: 100%; opacity: 1; }
+      .hero-media .hero-poster,
+      .hero-media video {
+        object-position: 61% center;
+        transform: scale(1.10);
+        transform-origin: 61% center;
+      }
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, .94) 0%, rgba(0, 0, 0, .82) 42%, rgba(0, 0, 0, .62) 100%),
+          linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .40) 35%, rgba(0, 0, 0, .43) 100%);
+      }
     }
 
-    @keyframes hero-visual-reveal {
-      from { opacity: 0; transform: translate3d(0, 26px, 0) scale(.985); }
-      to { opacity: 1; transform: translate3d(0, 0, 0) scale(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-media video { visibility: hidden; }
     }
 
-    @media (max-width: 900px) and (min-width: 701px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr) minmax(0, .94fr);
-        gap: clamp(22px, 3vw, 34px);
-        padding-top: 150px;
+
+    /* Final hero composition: show the complete 16:9 black-hole animation on the right. */
+    @media (min-width: 701px) {
+      .hero-media {
+        top: 50%;
+        right: clamp(28px, 5vw, 88px);
+        bottom: auto;
+        left: auto;
+        width: min(50vw, 840px);
+        height: auto;
+        aspect-ratio: 16 / 9;
+        transform: translateY(-50%);
+        overflow: hidden;
+        background: #000;
+      }
+
+      .hero-media .hero-poster,
+      .hero-media video {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transform: none;
+        transform-origin: center;
+        background: #000;
+        filter: brightness(.94) contrast(1.07) saturate(.88);
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg, #000 0%, #000 25%, rgba(0, 0, 0, .97) 37%, rgba(0, 0, 0, .78) 49%, rgba(0, 0, 0, .20) 67%, rgba(0, 0, 0, .03) 100%),
+          linear-gradient(0deg, rgba(0, 0, 0, .40) 0%, transparent 27%, transparent 76%, rgba(0, 0, 0, .28) 100%);
       }
     }
 
     @media (max-width: 700px) {
-      .hero-inner {
-        grid-template-columns: minmax(0, 1fr);
-        gap: 0;
-        padding: 120px 0 58px;
-      }
-      .hero-copy { max-width: 560px; }
-      .hero-visual {
-        width: min(100%, 560px);
-        max-width: none;
-        justify-self: start;
-        margin-top: 38px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .hero-visual {
-        opacity: 1;
+      /* Keep the full frame visible on phones; anchor it to the lower-right. */
+      .hero-media {
+        top: auto;
+        right: 3.5%;
+        bottom: 4%;
+        left: auto;
+        width: 93%;
+        height: auto;
+        aspect-ratio: 16 / 9;
         transform: none;
-        animation: none !important;
+        opacity: .78;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .hero-media .hero-poster,
+      .hero-media video {
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transform: none;
+        transform-origin: center;
+        background: #000;
+      }
+
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(0, 0, 0, .90) 0%, rgba(0, 0, 0, .76) 48%, rgba(0, 0, 0, .60) 100%),
+          linear-gradient(0deg, #000 0%, rgba(0, 0, 0, .16) 36%, rgba(0, 0, 0, .56) 100%);
       }
     }
 
+  
 
-
-    .hero-video-toggle {
-      position: absolute;
-      z-index: 2;
-      top: 14px;
-      right: 14px;
-      display: grid;
-      width: 36px;
-      height: 36px;
-      place-items: center;
-      padding: 0;
-      border: 1px solid rgba(255, 255, 255, .28);
-      border-radius: 50%;
-      background: rgba(0, 0, 0, .56);
-      color: var(--white);
-      cursor: pointer;
-      opacity: .78;
-      backdrop-filter: blur(8px);
-      transition: opacity .2s ease, background .2s ease, border-color .2s ease;
+    /* Final reliable hero setup: full frame, right aligned, black canvas. */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      background: #000 !important;
     }
-    .hero-video-toggle:hover,
-    .hero-video-toggle:focus-visible {
-      border-color: rgba(255, 255, 255, .72);
-      background: rgba(0, 0, 0, .82);
+    .hero-media {
+      position: absolute !important;
+      z-index: 0 !important;
+      top: 50% !important;
+      right: clamp(28px, 5vw, 88px) !important;
+      bottom: auto !important;
+      left: auto !important;
+      width: min(48vw, 840px) !important;
+      height: auto !important;
+      aspect-ratio: 16 / 9;
+      transform: translateY(-50%) !important;
+      overflow: hidden;
+      background: #000;
+      opacity: 1 !important;
+      pointer-events: none;
+    }
+    .hero-media .hero-poster,
+    .hero-media video {
+      position: absolute !important;
+      inset: 0 !important;
+      display: block !important;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: contain !important;
+      object-position: center !important;
+      transform: none !important;
+      background: #000;
+    }
+    .hero-media .hero-poster {
+      z-index: 0 !important;
       opacity: 1;
+      transition: opacity .35s ease;
     }
-    .hero-video-toggle:focus-visible { outline: 2px solid var(--white); outline-offset: 3px; }
-    .hero-video-toggle span { font-size: 13px; font-weight: 700; line-height: 1; }
+    .hero-media video {
+      z-index: 1 !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      filter: brightness(.96) contrast(1.06) saturate(.90);
+    }
+    .hero-media.is-playing .hero-poster { opacity: 0; }
+    .hero::before {
+      z-index: 1;
+      background:
+        linear-gradient(90deg, #000 0%, #000 25%, rgba(0,0,0,.97) 37%, rgba(0,0,0,.78) 49%, rgba(0,0,0,.18) 68%, rgba(0,0,0,.02) 100%),
+        linear-gradient(0deg, rgba(0,0,0,.34) 0%, transparent 28%, transparent 76%, rgba(0,0,0,.24) 100%);
+    }
+    .hero-inner { position: relative; z-index: 2; }
 
-    @media (prefers-reduced-motion: reduce) {
-      .hero-video-toggle { transition: none; }
+    @media (max-width: 700px) {
+      .hero { min-height: max(760px, 100svh); }
+      .hero-media {
+        top: auto !important;
+        right: 4% !important;
+        bottom: 24px !important;
+        left: auto !important;
+        width: 92% !important;
+        max-width: 680px;
+        transform: none !important;
+      }
+      .hero-inner { padding-top: 118px; padding-bottom: clamp(230px, 58vw, 310px); }
+      .hero::before {
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.90) 0%, rgba(0,0,0,.78) 48%, rgba(0,0,0,.60) 100%),
+          linear-gradient(0deg, #000 0%, rgba(0,0,0,.14) 38%, rgba(0,0,0,.52) 100%);
+      }
     }
 
   </style>
@@ -2081,24 +2239,20 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-media" aria-hidden="true">
+        <img class="hero-poster" src="./assets/hero-black-hole-poster.jpg" alt="" />
+        <video autoplay muted loop playsinline preload="auto" poster="./assets/hero-black-hole-poster.jpg">
+          <source src="./assets/hero-black-hole-4k.mp4" type="video/mp4" />
+        </video>
+      </div>
       <div class="hero-inner">
-        <div class="hero-copy">
-          <h1 id="hero-title" class="hero-title">
-            <span class="hero-title-line">Expanding</span>
-            <span class="hero-title-line">the possible</span>
-          </h1>
-          <p class="hero-subtitle">Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.</p>
-          <div class="hero-bottom">
-            <a class="text-link" href="#focus">Explore <span aria-hidden="true">→</span></a>
-          </div>
-        </div>
-        <div class="hero-visual" role="group" aria-label="Animated black hole visual">
-          <video class="hero-video" muted playsinline loop preload="metadata" poster="assets/azryon-hero-poster.jpg" tabindex="-1" aria-hidden="true" width="1920" height="1080">
-            <source src="assets/azryon-black-hole.mp4" type="video/mp4">
-          </video>
-          <button class="hero-video-toggle" type="button" aria-label="Play hero animation" aria-pressed="false">
-            <span aria-hidden="true">▶</span>
-          </button>
+        <h1 id="hero-title" class="hero-title">
+          <span class="hero-title-line">Expanding</span>
+          <span class="hero-title-line">the possible</span>
+        </h1>
+        <p class="hero-subtitle">Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.</p>
+        <div class="hero-bottom">
+          <a class="text-link" href="#focus">Explore <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -2207,56 +2361,17 @@
 
 
   <div class="whatsapp-float-shell">
-    <button class="whatsapp-float" type="button" disabled aria-label="WhatsApp chat shortcut; link not yet configured">
+    <a class="whatsapp-float" href="https://wa.me/94785552511" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp">
       <svg class="whatsapp-float-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
   <path d="M20.52 3.48A11.86 11.86 0 0 0 12.08 0C5.53 0 .2 5.33.2 11.88c0 2.1.55 4.16 1.6 5.97L.1 24l6.3-1.66a11.9 11.9 0 0 0 5.68 1.45h.01c6.55 0 11.88-5.33 11.89-11.88a11.83 11.83 0 0 0-3.46-8.43ZM12.09 21.8h-.01a9.9 9.9 0 0 1-5.04-1.38l-.36-.21-3.75.98 1-3.65-.24-.38a9.88 9.88 0 0 1-1.52-5.25c0-5.46 4.45-9.9 9.92-9.9a9.86 9.86 0 0 1 7.01 2.9 9.84 9.84 0 0 1 2.9 7.01c0 5.46-4.44 9.9-9.91 9.9Zm5.44-7.41c-.3-.15-1.78-.88-2.05-.98-.28-.1-.48-.15-.68.15-.2.3-.78.98-.96 1.18-.18.2-.35.23-.65.08-.3-.15-1.26-.46-2.4-1.47-.89-.8-1.49-1.79-1.67-2.09-.18-.3-.02-.46.13-.61.13-.13.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.24-.58-.49-.5-.68-.51h-.58c-.2 0-.53.08-.8.38-.28.3-1.05 1.03-1.05 2.51 0 1.48 1.08 2.91 1.23 3.1.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.71.64.72.23 1.37.2 1.89.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.18-1.43-.08-.12-.28-.2-.58-.35Z" fill="currentColor"/>
 </svg>
-    </button>
+    </a>
   </div>
 
   <script>
     const siteHeader = document.querySelector('.site-header');
     const menuButton = document.querySelector('.menu-button');
     const navigation = document.querySelector('.nav-links');
-
-    // Keep the hero animation silent and respect the visitor's reduced-motion setting.
-    const heroVideo = document.querySelector('.hero-video');
-    const heroVideoToggle = document.querySelector('.hero-video-toggle');
-    const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const updateHeroVideoToggle = () => {
-      if (!heroVideo || !heroVideoToggle) return;
-      const isPlaying = !heroVideo.paused;
-      heroVideoToggle.setAttribute('aria-pressed', String(isPlaying));
-      heroVideoToggle.setAttribute('aria-label', isPlaying ? 'Pause hero animation' : 'Play hero animation');
-      heroVideoToggle.querySelector('span').textContent = isPlaying ? 'Ⅱ' : '▶';
-    };
-    const syncHeroVideoMotion = () => {
-      if (!heroVideo) return;
-      if (motionPreference.matches) {
-        heroVideo.pause();
-        updateHeroVideoToggle();
-      } else {
-        heroVideo.play().then(updateHeroVideoToggle).catch(updateHeroVideoToggle);
-      }
-    };
-    if (heroVideo && heroVideoToggle) {
-      heroVideo.addEventListener('play', updateHeroVideoToggle);
-      heroVideo.addEventListener('pause', updateHeroVideoToggle);
-      heroVideoToggle.addEventListener('click', () => {
-        if (heroVideo.paused) {
-          heroVideo.play().then(updateHeroVideoToggle).catch(updateHeroVideoToggle);
-        } else {
-          heroVideo.pause();
-          updateHeroVideoToggle();
-        }
-      });
-    }
-    syncHeroVideoMotion();
-    if (motionPreference.addEventListener) {
-      motionPreference.addEventListener('change', syncHeroVideoMotion);
-    } else if (motionPreference.addListener) {
-      motionPreference.addListener(syncHeroVideoMotion);
-    }
 
     const closeMobileMenu = () => {
       navigation.classList.remove('is-open');
@@ -2301,6 +2416,43 @@
     }, { passive: true });
 
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Keep the hero poster visible until the animation is genuinely playing.
+    // Do not hide the video based on the OS reduced-motion preference; the hero
+    // is intentionally an animated brand visual and remains muted/inline.
+    const heroMedia = document.querySelector('.hero-media');
+    const heroVideo = heroMedia && heroMedia.querySelector('video');
+    if (heroVideo) {
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.loop = true;
+      heroVideo.playsInline = true;
+
+      heroVideo.addEventListener('playing', () => {
+        heroMedia.classList.add('is-playing');
+      });
+      heroVideo.addEventListener('waiting', () => {
+        heroMedia.classList.remove('is-playing');
+      });
+      heroVideo.addEventListener('error', () => {
+        heroMedia.classList.remove('is-playing');
+        console.warn('Hero video could not be loaded. Check ./assets/hero-black-hole-4k.mp4');
+      });
+
+      const startHeroVideo = () => {
+        const playAttempt = heroVideo.play();
+        if (playAttempt && typeof playAttempt.catch === 'function') {
+          // Keep the poster as a visible fallback if the browser blocks autoplay.
+          playAttempt.catch(() => {});
+        }
+      };
+      startHeroVideo();
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && heroVideo.paused) startHeroVideo();
+      });
+      window.addEventListener('pointerdown', startHeroVideo, { once: true, passive: true });
+      window.addEventListener('keydown', startHeroVideo, { once: true });
+    }
 
     const revealItems = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window) {
