@@ -1,22 +1,27 @@
 # AZRYON package verification report
 
-## Local package checks
+## Local checks performed for this package
 
-- ZIP integrity: passed.
-- Original uploaded logo retained byte-for-byte in `azryon-logo.png` and `brand-source/azryon-original-logo.png` (1254 × 1254 PNG).
-- Header and footer each reference `/azryon-logo.png`; visible page layout and text were otherwise retained.
-- Exactly one homepage `rel="icon"` declaration is present, pointing to `/favicon-96x96.png` (96 × 96 PNG).
-- Root `favicon.ico` is a valid multi-resolution ICO with ten square sizes: 16, 32, 48, 64, 96, 128, 144, 192, 240 and 256 px.
-- Apple touch icon: 180 × 180 PNG.
-- Manifest: valid JSON; all four referenced Android/PWA icons exist and match their declared dimensions.
-- Organization structured-data logo points to `/azryon-logo.png`, is 1254 × 1254, and meets Google's documented 112 × 112 minimum dimension.
-- Embedded and standalone JSON-LD graphs parse and match.
-- Open Graph and X/Twitter metadata point to `/og-image.png`; actual image is 1200 × 630 and matches the metadata dimensions.
-- `robots.txt` allows crawling and declares `https://azryon.com/sitemap.xml`.
-- Obsolete Windows tiles, unused SVG favicon/mark copies and duplicate favicon/social-square images removed.
+- ZIP integrity checked after packaging.
+- Original supplied logo files and existing website assets retained from the previously prepared logo/SEO package.
+- Homepage embeds exactly one JSON-LD script in the `<head>`.
+- Embedded JSON-LD and `organization-schema.jsonld` parse as JSON and contain the same graph.
+- Founder Person node is connected to the parent Organization through `founder` and `worksFor` references.
+- Four subsidiary Organization nodes reference the parent through `parentOrganization`.
+- Schema URLs use the public Azryon and Hirun Heshatha domains supplied by the owner.
+- The Organization logo points to `/azryon-logo.png` (1254 × 1254 PNG in this package).
+- The package retains the existing favicon, PWA, Open Graph, canonical, robots, sitemap and CNAME assets.
 
-## Not verified from this local build
+## Accuracy notes
 
-- Live HTTP status, MIME type, redirects, caching and crawlability of the deployed assets. This execution environment could read the public homepage in web search but could not directly retrieve the binary favicon endpoints to verify their live response.
-- Googlebot/Googlebot-Image access after deployment, Search Console live test, the next Google recrawl, or the displayed favicon/logo in actual Search results.
-- Google may take time to refresh a favicon and does not guarantee a particular favicon or organization logo display, even when requirements are met.
+- `legalName` is omitted because a registered legal name (for example, an LLC/Inc. suffix) has not been confirmed.
+- Only the country code `US` is included in the postal address because no street, city, state or postal code was supplied.
+- No telephone number or unverified service-area claim is included.
+- Founder biography claims beyond the supplied name, profile URL and Founder & CEO title are omitted.
+
+## Not verified by local package checks
+
+- Live deployment status and HTTP responses after the user uploads this package.
+- Whether all social profile URLs resolve to the intended accounts.
+- Googlebot access to image assets after deployment, Google Search Console live validation, or the logo/favicon currently displayed in Search.
+- Google controls recrawl timing and does not guarantee a particular search appearance.

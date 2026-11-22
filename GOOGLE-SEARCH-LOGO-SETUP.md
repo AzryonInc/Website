@@ -16,7 +16,7 @@ The homepage declares one `rel="icon"` PNG resource instead of competing SVG, se
 
 ## Publish steps
 
-1. Extract this ZIP and upload **all contents inside the `Azryon` folder** to the root of the GitHub Pages repository, replacing the old files. Do not upload the ZIP file itself or create an extra nested folder.
+1. Extract this ZIP and upload **all files and folders at the top level of the extracted ZIP** to the root of the GitHub Pages repository, replacing the old files. Do not upload the ZIP file itself or create an extra nested folder.
 2. After GitHub Pages deploys, check these public URLs in a browser:
    - `https://azryon.com/`
    - `https://azryon.com/favicon-96x96.png`

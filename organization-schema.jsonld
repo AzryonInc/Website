@@ -6,36 +6,25 @@
       "@id": "https://azryon.com/#organization",
       "name": "Azryon",
       "alternateName": "AZRYON",
-      "legalName": "Azryon LLC",
       "url": "https://azryon.com/",
-      "description": "Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.",
-      "slogan": "Space, AI, Robotics & Investments",
+      "description": "Azryon is a holding company focused on Space, Super Intelligence, Robotics and Investments.",
       "foundingDate": "2026",
       "logo": {
         "@type": "ImageObject",
         "@id": "https://azryon.com/#logo",
         "url": "https://azryon.com/azryon-logo.png",
-        "contentUrl": "https://azryon.com/azryon-logo.png",
-        "width": 1254,
-        "height": 1254,
-        "caption": "Azryon official symbol logo on its original black square background"
-      },
-      "image": {
-        "@id": "https://azryon.com/#logo"
+        "contentUrl": "https://azryon.com/azryon-logo.png"
       },
       "email": "contact@azryon.com",
-      "contactPoint": [
-        {
-          "@type": "ContactPoint",
-          "contactType": "General inquiries",
-          "email": "contact@azryon.com"
-        }
-      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "General inquiries",
+        "email": "contact@azryon.com"
+      },
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "US"
       },
-      "areaServed": "International",
       "founder": {
         "@id": "https://hirunheshatha.com/#person"
       },
@@ -47,25 +36,9 @@
         "https://x.com/AzryonInc",
         "https://www.linkedin.com/company/azryoninc"
       ],
-      "subOrganization": [
-        {
-          "@id": "https://azryon.si/#organization"
-        },
-        {
-          "@id": "https://azryonrobotics.com/#organization"
-        },
-        {
-          "@id": "https://azryoncapital.com/#organization"
-        },
-        {
-          "@id": "https://azryonspace.com/#organization"
-        }
-      ],
       "knowsAbout": [
-        "Space Technology",
-        "Space Exploration",
+        "Space",
         "Super Intelligence",
-        "Artificial Intelligence",
         "Robotics",
         "Investments"
       ],
@@ -79,7 +52,6 @@
       "name": "Hirun Heshatha",
       "url": "https://hirunheshatha.com/",
       "jobTitle": "Founder & CEO",
-      "description": "Hirun Heshatha is the Founder and CEO of Azryon, an entrepreneur and investor building at the intersection of Space, Artificial Intelligence, Robotics and Investments, driven by a vision to build the future.",
       "worksFor": {
         "@id": "https://azryon.com/#organization"
       },
@@ -94,10 +66,20 @@
     },
     {
       "@type": "Organization",
+      "@id": "https://azryonspace.com/#organization",
+      "name": "Azryon Space",
+      "url": "https://azryonspace.com/",
+      "description": "Space",
+      "parentOrganization": {
+        "@id": "https://azryon.com/#organization"
+      }
+    },
+    {
+      "@type": "Organization",
       "@id": "https://azryon.si/#organization",
       "name": "Azryon SI",
       "url": "https://azryon.si/",
-      "description": "Azryon SI is a subsidiary of Azryon focused on Super Intelligence, connecting systems, capabilities and ideas.",
+      "description": "Super Intelligence",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
       }
@@ -107,7 +89,7 @@
       "@id": "https://azryonrobotics.com/#organization",
       "name": "Azryon Robotics",
       "url": "https://azryonrobotics.com/",
-      "description": "Azryon Robotics is a subsidiary of Azryon focused on intelligent machines, automation and next-generation robotics technology.",
+      "description": "Robotics",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
       }
@@ -117,17 +99,7 @@
       "@id": "https://azryoncapital.com/#organization",
       "name": "Azryon Capital",
       "url": "https://azryoncapital.com/",
-      "description": "Azryon Capital is a subsidiary of Azryon focused on investments, identifying potential and supporting long-term opportunities.",
-      "parentOrganization": {
-        "@id": "https://azryon.com/#organization"
-      }
-    },
-    {
-      "@type": "Organization",
-      "@id": "https://azryonspace.com/#organization",
-      "name": "Azryon Space",
-      "url": "https://azryonspace.com/",
-      "description": "Azryon Space is a subsidiary of Azryon focused on space exploration, technology and opportunities beyond Earth.",
+      "description": "Investments",
       "parentOrganization": {
         "@id": "https://azryon.com/#organization"
       }
@@ -138,7 +110,7 @@
       "url": "https://azryon.com/",
       "name": "Azryon",
       "alternateName": "AZRYON",
-      "description": "Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.",
+      "description": "Azryon is a holding company focused on Space, Super Intelligence, Robotics and Investments.",
       "publisher": {
         "@id": "https://azryon.com/#organization"
       },
@@ -148,7 +120,7 @@
       "@type": "WebPage",
       "@id": "https://azryon.com/#webpage",
       "url": "https://azryon.com/",
-      "name": "Azryon — Official Website",
+      "name": "Azryon",
       "isPartOf": {
         "@id": "https://azryon.com/#website"
       },
@@ -157,9 +129,6 @@
       },
       "mainEntity": {
         "@id": "https://azryon.com/#organization"
-      },
-      "primaryImageOfPage": {
-        "@id": "https://azryon.com/#logo"
       },
       "inLanguage": "en"
     }
