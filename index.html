@@ -1923,88 +1923,99 @@
 
   
 
-    /* Azryon hero: preserve the original 4K picture; soften only its outermost edges. */
+    /* Hero video integration: full-height visual, strongest on the right. */
     .hero {
-      position: relative;
       isolation: isolate;
-      overflow: hidden;
-      background: #000;
+      background: var(--black);
     }
 
-    .hero-visual {
+    .hero-media {
       position: absolute;
       z-index: 0;
-      top: 50%;
-      right: max(24px, calc((100vw - 1680px) / 2));
-      width: min(70vw, 1240px, 156vh);
-      aspect-ratio: 16 / 9;
+      inset: 0;
       overflow: hidden;
+      background: var(--black);
       pointer-events: none;
-      transform: translateY(-50%);
-      background: #000;
-      isolation: isolate;
     }
 
-    /*
-      Keep the source video untouched: no brightness, contrast, saturation, blur,
-      or color filters. This very light overlay fades only the outside 2–9% of the
-      frame into the page's #000 canvas. The central picture and event-horizon glow
-      remain at the original source luminance and color.
-    */
     .hero-video {
       display: block;
       width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center center;
-      background: #000;
-      filter: none;
+      object-fit: cover;
+      object-position: right center;
+      opacity: .96;
     }
 
-    .hero-visual::after {
+    .hero-media::after {
       position: absolute;
-      z-index: 1;
       inset: 0;
       content: "";
-      pointer-events: none;
       background:
         linear-gradient(90deg,
-          rgba(0, 0, 0, .52) 0%,
-          rgba(0, 0, 0, .22) 2.5%,
-          transparent 9%,
-          transparent 94%,
-          rgba(0, 0, 0, .08) 98.5%,
-          rgba(0, 0, 0, .14) 100%),
-        linear-gradient(180deg,
-          rgba(0, 0, 0, .12) 0%,
-          transparent 5%,
-          transparent 96%,
-          rgba(0, 0, 0, .14) 100%);
+          #000 0%,
+          #000 20%,
+          rgba(0, 0, 0, .97) 34%,
+          rgba(0, 0, 0, .82) 47%,
+          rgba(0, 0, 0, .34) 66%,
+          rgba(0, 0, 0, .06) 100%),
+        linear-gradient(0deg,
+          rgba(0, 0, 0, .18) 0%,
+          transparent 18%,
+          transparent 82%,
+          rgba(0, 0, 0, .18) 100%);
     }
 
     .hero-inner {
-      z-index: 2;
+      z-index: 1;
+      width: min(42vw, 680px);
+      margin: 0 auto 0 max(6.6vw, calc((100vw - 1560px) / 2));
     }
 
-    @media (max-width: 900px) {
-      .hero-visual {
-        right: 0;
-        width: min(88vw, 1240px, 156vh);
+    @media (max-width: 1100px) and (min-width: 701px) {
+      .hero-inner {
+        width: min(48vw, 620px);
+        margin-left: 5vw;
+      }
+
+      .hero-media::after {
+        background:
+          linear-gradient(90deg,
+            #000 0%,
+            rgba(0, 0, 0, .98) 28%,
+            rgba(0, 0, 0, .84) 47%,
+            rgba(0, 0, 0, .28) 76%,
+            rgba(0, 0, 0, .08) 100%);
       }
     }
 
     @media (max-width: 700px) {
-      .hero-visual {
-        top: auto;
-        right: 0;
-        bottom: 4.5%;
-        width: min(100vw, 156vh);
-        transform: none;
+      .hero-inner {
+        width: min(calc(100% - 40px), var(--content));
+        margin: 0 auto;
       }
 
-      .hero-inner {
-        padding: 118px 0 clamp(210px, 55vw, 248px);
+      .hero-video {
+        object-position: 66% center;
+        opacity: .78;
       }
+
+      .hero-media::after {
+        background:
+          linear-gradient(90deg,
+            rgba(0, 0, 0, .98) 0%,
+            rgba(0, 0, 0, .91) 43%,
+            rgba(0, 0, 0, .68) 100%),
+          linear-gradient(0deg,
+            rgba(0, 0, 0, .32) 0%,
+            transparent 52%,
+            rgba(0, 0, 0, .2) 100%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hero-video { visibility: hidden; }
+      .hero-media { background: #05070b url("assets/hero-video-poster.jpg") center / cover no-repeat; }
     }
 
   </style>
@@ -2027,9 +2038,18 @@
 
   <main id="top">
     <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-visual" aria-hidden="true">
-        <video class="hero-video" autoplay muted loop playsinline preload="auto" disablepictureinpicture tabindex="-1">
-          <source src="assets/azryon-black-hole-4k.mp4" type="video/mp4" />
+      <div class="hero-media" aria-hidden="true">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="assets/hero-video-poster.jpg"
+          tabindex="-1"
+        >
+          <source src="assets/hero-video.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="hero-inner">
@@ -2156,6 +2176,11 @@
   </div>
 
   <script>
+    const heroVideo = document.querySelector('.hero-video');
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      heroVideo?.pause();
+    }
+
     const siteHeader = document.querySelector('.site-header');
     const menuButton = document.querySelector('.menu-button');
     const navigation = document.querySelector('.nav-links');
