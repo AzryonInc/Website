@@ -671,15 +671,111 @@ body .footer-note {
   </style>
 
 
-  <style id="azryon-shop-nav-fit">
-    /* AZRYON SHOP NAV TABLET FIT: keep the seven-link navigation balanced before the mobile menu breakpoint. */
+    <style id="azryon-shop-nav-fit">
+    /* Five primary links keep the desktop and tablet navigation clean and balanced. */
     @media (min-width: 701px) and (max-width: 1050px) {
-      .nav-wrap { gap: 16px; }
-      .wordmark img { width: 148px; }
-      .nav-links { gap: clamp(10px, 1.35vw, 15px); }
-      .nav-links a { font-size: 10px; letter-spacing: .055em; }
+      .nav-wrap { gap: 18px; }
+      .wordmark img { width: 150px; }
+      .nav-links { gap: clamp(14px, 1.7vw, 20px); }
+      .nav-links a { font-size: 11px; letter-spacing: .06em; }
     }
   </style>
+
+  <style id="azryon-unified-footer-styles">
+    .azryon-footer {
+      margin-top: 0;
+      padding: clamp(48px, 6vw, 76px) 0 24px;
+      border-top: 1px solid var(--white-12, rgba(255,255,255,.12));
+      background: #000;
+      color: #fff;
+    }
+    .azryon-footer-inner {
+      width: min(calc(100% - 64px), 1240px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(210px, 1.35fr) repeat(3, minmax(120px, .75fr));
+      gap: clamp(24px, 4vw, 54px);
+      align-items: start;
+    }
+    .azryon-footer-brand { display: inline-flex; align-items: center; line-height: 0; }
+    .azryon-footer-brand img { display: block; width: 142px; max-width: 100%; height: auto; object-fit: contain; }
+    .azryon-footer-description {
+      max-width: 245px;
+      margin: 20px 0 0;
+      color: rgba(255,255,255,.58);
+      font-size: 12px;
+      line-height: 1.75;
+    }
+    .azryon-footer-tagline {
+      margin: 10px 0 0;
+      color: rgba(255,255,255,.36);
+      font-size: 10px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .azryon-footer-heading {
+      margin: 4px 0 19px;
+      color: rgba(255,255,255,.42);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .16em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .azryon-footer-group ul { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+    .azryon-footer-group a {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: rgba(255,255,255,.72);
+      font-size: 12px;
+      line-height: 1.5;
+      text-decoration: none;
+      transition: color .2s ease, transform .2s ease;
+    }
+    .azryon-footer-group a:hover { color: #fff; transform: translateX(2px); }
+    .azryon-footer-group a:focus-visible, .azryon-footer-brand:focus-visible {
+      outline: 1px solid #fff;
+      outline-offset: 5px;
+    }
+    .azryon-footer-group a span { color: rgba(255,255,255,.5); font-size: 11px; }
+    .azryon-footer-bottom {
+      width: min(calc(100% - 64px), 1240px);
+      margin: clamp(38px, 5vw, 58px) auto 0;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.10);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px 24px;
+      color: rgba(255,255,255,.35);
+      font-size: 9px;
+      font-weight: 400;
+      letter-spacing: .12em;
+      line-height: 1.6;
+      text-transform: uppercase;
+    }
+    @media (max-width: 900px) {
+      .azryon-footer-inner { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .azryon-footer-brand-block { grid-column: 1 / -1; margin-bottom: 12px; }
+      .azryon-footer-description { max-width: 360px; }
+    }
+    @media (max-width: 600px) {
+      .azryon-footer { padding-top: 46px; }
+      .azryon-footer-inner, .azryon-footer-bottom { width: min(calc(100% - 40px), 1240px); }
+      .azryon-footer-inner { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 22px; }
+      .azryon-footer-brand-block { margin-bottom: 0; }
+      .azryon-footer-bottom { align-items: flex-start; flex-direction: column; gap: 8px; margin-top: 38px; }
+    }
+    @media (max-width: 380px) {
+      .azryon-footer-inner { grid-template-columns: 1fr; gap: 28px; }
+      .azryon-footer-brand-block { grid-column: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .azryon-footer-group a { transition: none; }
+    }
+  </style>
+
 </head>
 <body>
   <header class="site-header">
@@ -691,14 +787,12 @@ body .footer-note {
         <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
       </button>
       <nav aria-label="Main navigation" class="nav-links" id="primary-navigation">
-  <a href="./index.html">Home</a>
-  <a href="./about.html">About</a>
-  <a href="./mission.html" aria-current="page">Mission</a>
-  <a href="./subsidiaries.html">Subsidiaries</a>
-   <a href="https://shop.azryon.com/" aria-label="Visit the AZRYON Shop">Shop</a>
-  <a href="./careers.html">Careers</a>
-  <a href="./contact.html">Contact</a>
-</nav>
+        <a href="./index.html#top">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./subsidiaries.html">Companies</a>
+        <a href="https://shop.azryon.com/" aria-label="Visit the AZRYON Shop">Shop</a>
+        <a href="./contact.html">Contact</a>
+      </nav>
     </div>
   </header>
 
@@ -730,13 +824,48 @@ body .footer-note {
   </div>
 </main>
 
-  <footer class="footer">
-    <a class="footer-brand" href="./index.html" aria-label="AZRYON home">
-      <img src="./assets/azryon-wordmark.webp" alt="AZRYON" width="2048" height="682" decoding="async" />
-    </a>
-    <span class="footer-copy">© <span id="year">2026</span> AZRYON LLC</span>
-    <span class="footer-note">Space · SI · Robotics · Investments</span>
-  </footer>
+  <footer class="azryon-footer" aria-label="AZRYON site footer">
+  <div class="azryon-footer-inner">
+    <div class="azryon-footer-brand-block">
+      <a class="azryon-footer-brand" href="./index.html#top" aria-label="AZRYON home">
+        <img src="./assets/azryon-wordmark.webp" alt="AZRYON" width="2048" height="682" loading="lazy" decoding="async" />
+      </a>
+      <p class="azryon-footer-description">Space · Super Intelligence · Robotics · Investments</p>
+      <p class="azryon-footer-tagline">Think beyond. Build forward.</p>
+    </div>
+
+    <nav class="azryon-footer-group" aria-label="Explore AZRYON">
+      <h2 class="azryon-footer-heading">Explore</h2>
+      <ul>
+        <li><a href="./about.html">About</a></li>
+        <li><a href="./mission.html">Mission</a></li>
+        <li><a href="./subsidiaries.html">Companies</a></li>
+        <li><a href="https://shop.azryon.com/" aria-label="Visit the AZRYON Shop">Shop <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+
+    <nav class="azryon-footer-group" aria-label="Company and leadership">
+      <h2 class="azryon-footer-heading">Company</h2>
+      <ul>
+        <li><a href="./founder.html">Meet the Founder</a></li>
+        <li><a href="./careers.html">Careers</a></li>
+      </ul>
+    </nav>
+
+    <nav class="azryon-footer-group" aria-label="Contact AZRYON">
+      <h2 class="azryon-footer-heading">Connect</h2>
+      <ul>
+        <li><a href="./contact.html">Contact</a></li>
+        <li><a href="mailto:contact@azryon.com">contact@azryon.com</a></li>
+        <li><a href="https://wa.me/94785552511" target="_blank" rel="noopener noreferrer">WhatsApp <span aria-hidden="true">↗</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="azryon-footer-bottom">
+    <span>© <span id="year">2026</span> AZRYON LLC. ALL RIGHTS RESERVED.</span>
+    <span>THINK BEYOND. BUILD FORWARD.</span>
+  </div>
+</footer>
 
   <script>
   const siteHeader = document.querySelector('.site-header');
