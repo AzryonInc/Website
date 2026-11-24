@@ -3346,6 +3346,44 @@
   }
 </style>
 
+
+  <style id="azryon-global-typography">
+    /* AZRYON GLOBAL TYPOGRAPHY: D-DIN, bold display headings, uppercase UI labels.
+       Keep descriptive copy and paragraph text in normal sentence case. */
+    html, body, button, input, select, textarea {
+      font-family: "D-DIN", Arial, sans-serif;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: "D-DIN", Arial, sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .nav-links a,
+    .menu-button,
+    .text-link,
+    .text-action,
+    .company-link,
+    .apply-link,
+    .footer-links a,
+    .button,
+    .btn,
+    .eyebrow,
+    .section-kicker,
+    .section-index,
+    .card-index,
+    .roles-count,
+    .role-index,
+    .role-type,
+    .detail-title,
+    .statement-label,
+    .contact-label,
+    .footer-copy,
+    .footer-note {
+      text-transform: uppercase;
+    }
+    /* Descriptions, subtitles, paragraphs and email addresses intentionally
+       retain normal sentence case for comfortable reading. */
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -3356,11 +3394,13 @@
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </button>
-      <nav class="nav-links" id="primary-navigation" aria-label="Main navigation">
-        <a href="#focus">Subsidiaries</a>
-        <a href="./careers.html">Careers</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <nav aria-label="Main navigation" class="nav-links" id="primary-navigation">
+  <a href="./about.html">About</a>
+  <a href="./mission.html">Mission</a>
+  <a href="./subsidiaries.html">Subsidiaries</a>
+  <a href="./careers.html">Careers</a>
+  <a href="./contact.html">Contact</a>
+</nav>
     </div>
   </header>
 
