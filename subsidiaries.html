@@ -630,8 +630,12 @@ body .footer-note {
 
 
 <style id="azryon-subsidiary-brand-case">
-  .subsidiary-feature h3,
-  .company-main h2 { text-transform: none !important; }
+  /* Preserve official subsidiary brand casing despite the global uppercase heading system. */
+  body .subsidiary-feature h3,
+  body .company-main h2 {
+    text-transform: none !important;
+    font-variant: normal !important;
+  }
 </style>
 
 </head>
