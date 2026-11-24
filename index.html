@@ -2155,6 +2155,244 @@ body footer p, body .footer-copy, body .footer-note{
     }
   }
 </style>
+
+<style id="azryon-homepage-preview-redesign">
+  /* Home page additions: editorial previews, not duplicate detail pages. */
+  .az-home-shell{
+    width: min(calc(100% - 64px), 1240px);
+    margin: 0 auto;
+  }
+  .az-section-intro-wrap{ max-width: 440px; margin-left: auto; }
+  .az-section-intro-wrap .section-intro{ margin: 0 0 22px; }
+  .az-inline-link{
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    color: rgba(255,255,255,.92);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .11em;
+    line-height: 1.5;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: gap .25s ease, color .25s ease;
+  }
+  .az-inline-link span{ color: rgba(255,255,255,.58); font-size: 16px; font-weight: 400; }
+  .az-inline-link:hover{ gap: 21px; color: #fff; }
+  .az-inline-link:focus-visible, .az-light-button:focus-visible, .az-outline-button:focus-visible,
+  .az-insight-item:focus-visible{ outline: 1px solid #fff; outline-offset: 5px; }
+  .az-pillar-index{
+    display: block;
+    margin-top: 24px;
+    color: rgba(255,255,255,.42);
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: .16em;
+    line-height: 1.5;
+  }
+  .az-companies-section{ padding-bottom: 106px; }
+  .az-companies-foot{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 28px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.12);
+    color: rgba(255,255,255,.44);
+    font-size: 10px;
+    letter-spacing: .08em;
+  }
+  .az-home-statement .statement-inner{ padding-top: 104px; padding-bottom: 108px; }
+  .az-statement-copy{
+    max-width: 580px;
+    margin: 28px 0 22px;
+    color: rgba(255,255,255,.62);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .az-approach-section{ padding: 112px 0 92px; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .az-home-section-head{
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(280px,.72fr);
+    align-items: end;
+    gap: 48px;
+    margin-bottom: 62px;
+  }
+  .az-home-section-head h2,
+  .az-founder-copy h2,
+  .az-next-inner h2{ max-width: 720px; margin: 0; }
+  .az-home-section-head h2 span,
+  .az-founder-copy h2 span,
+  .az-next-inner h2 span{ color: rgba(255,255,255,.43); }
+  .az-home-section-intro{
+    max-width: 420px;
+    margin: 0;
+    color: rgba(255,255,255,.65);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+  .az-approach-grid{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0,1fr));
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(255,255,255,.12);
+    list-style: none;
+  }
+  .az-approach-item{ min-width: 0; padding: 25px 25px 30px; }
+  .az-approach-item:first-child{ padding-left: 0; }
+  .az-approach-item + .az-approach-item{ border-left: 1px solid rgba(255,255,255,.12); }
+  .az-approach-number{ color: rgba(255,255,255,.4); font-size: 10px; letter-spacing: .13em; }
+  .az-approach-item h3{ margin: 52px 0 12px; font-size: clamp(20px,2vw,27px); }
+  .az-approach-item p{ max-width: 230px; margin: 0; color: rgba(255,255,255,.58); font-size: 13px; line-height: 1.75; }
+  .az-approach-bottom{ display: flex; justify-content: space-between; align-items: center; gap: 20px; margin-top: 25px; color: rgba(255,255,255,.38); font-size: 10px; letter-spacing: .08em; }
+
+  .az-insights-section{ padding: 118px 0 124px; }
+  .az-insights-head{ margin-bottom: 56px; }
+  .az-insights-intro{ max-width: 420px; margin-left: auto; }
+  .az-insights-intro .az-home-section-intro{ margin-bottom: 22px; }
+  .az-insight-grid{ display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); border-top: 1px solid rgba(255,255,255,.2); border-bottom: 1px solid rgba(255,255,255,.12); }
+  .az-insight-item{
+    display: flex;
+    min-height: 292px;
+    min-width: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 22px 22px;
+    color: inherit;
+    text-decoration: none;
+    transition: background .3s ease;
+  }
+  .az-insight-item:first-child{ padding-left: 0; }
+  .az-insight-item + .az-insight-item{ border-left: 1px solid rgba(255,255,255,.12); }
+  .az-insight-item:hover{ background: rgba(255,255,255,.035); }
+  .az-insight-meta{ color: rgba(255,255,255,.42); font-size: 9px; letter-spacing: .14em; }
+  .az-insight-item h3{ margin: 53px 0 13px; font-size: clamp(19px,1.9vw,25px); line-height: 1.16; }
+  .az-insight-item p{ margin: 0 0 24px; color: rgba(255,255,255,.57); font-size: 12px; line-height: 1.75; }
+  .az-insight-link{ display: inline-flex; align-items: center; gap: 10px; margin-top: auto; color: rgba(255,255,255,.85); font-size: 9px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+  .az-insight-link span{ color: rgba(255,255,255,.45); font-size: 15px; font-weight: 400; }
+
+  .az-updates-section{ padding: 104px 0; background: #090909; border-top: 1px solid rgba(255,255,255,.11); border-bottom: 1px solid rgba(255,255,255,.11); }
+  .az-updates-inner{ display: grid; grid-template-columns: minmax(0,.9fr) minmax(0,1.1fr); align-items: center; gap: clamp(44px,8vw,112px); }
+  .az-updates-copy h2{ margin: 0 0 24px; }
+  .az-updates-copy h2 span{ color: rgba(255,255,255,.42); }
+  .az-updates-copy .az-home-section-intro{ margin-bottom: 30px; }
+  .az-light-button, .az-outline-button{
+    display: inline-flex;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 0 17px;
+    border: 1px solid #fff;
+    color: #000;
+    background: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .11em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background .25s ease, color .25s ease, gap .25s ease;
+  }
+  .az-light-button:hover{ gap: 27px; background: transparent; color: #fff; }
+  .az-light-button span, .az-outline-button span{ font-size: 15px; font-weight: 400; }
+  .az-updates-list{ border-top: 1px solid rgba(255,255,255,.23); }
+  .az-update-line{ display: grid; grid-template-columns: 38px minmax(0,1fr) 22px; align-items: center; gap: 16px; padding: 22px 0; border-bottom: 1px solid rgba(255,255,255,.13); }
+  .az-update-index{ color: rgba(255,255,255,.38); font-size: 9px; letter-spacing: .12em; }
+  .az-update-line h3{ margin: 0 0 5px; font-size: 15px; letter-spacing: -.01em; }
+  .az-update-line p{ margin: 0; color: rgba(255,255,255,.52); font-size: 12px; line-height: 1.6; }
+  .az-update-arrow{ color: rgba(255,255,255,.45); font-size: 16px; }
+  .az-updates-note{ max-width: 400px; margin: 16px 0 0 54px; color: rgba(255,255,255,.38); font-size: 10px; line-height: 1.7; }
+
+  .az-founder-section{ padding: 120px 0; }
+  .az-founder-layout{ display: grid; grid-template-columns: minmax(0,.92fr) minmax(0,1.08fr); align-items: stretch; gap: clamp(44px,8vw,112px); }
+  .az-founder-visual{
+    position: relative;
+    display: flex;
+    min-height: 390px;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    padding: 26px;
+    border: 1px solid rgba(255,255,255,.16);
+    background:
+      radial-gradient(ellipse at 72% 28%, rgba(255,255,255,.12), transparent 42%),
+      linear-gradient(145deg, #171717 0%, #090909 55%, #030303 100%);
+  }
+  .az-founder-visual::before,.az-founder-visual::after{ position: absolute; content: ""; pointer-events: none; }
+  .az-founder-visual::before{ width: 76%; height: 76%; right: -22%; bottom: -24%; border: 1px solid rgba(255,255,255,.17); border-radius: 50%; box-shadow: 0 0 0 28px rgba(255,255,255,.018), 0 0 0 56px rgba(255,255,255,.015); }
+  .az-founder-visual::after{ top: 0; right: 28%; width: 1px; height: 100%; background: linear-gradient(transparent,rgba(255,255,255,.18),transparent); }
+  .az-founder-visual-kicker,.az-founder-visual-foot{ position: relative; z-index: 1; color: rgba(255,255,255,.5); font-size: 9px; letter-spacing: .16em; }
+  .az-founder-monogram{ position: relative; z-index: 1; align-self: center; color: rgba(255,255,255,.91); font-size: clamp(110px,15vw,190px); font-weight: 700; letter-spacing: -.1em; line-height: .9; }
+  .az-founder-copy{ align-self: center; padding: 22px 0; }
+  .az-founder-copy h2{ margin: 0 0 15px; font-size: clamp(42px,5.5vw,70px); }
+  .az-founder-role{ margin: 0 0 22px; color: rgba(255,255,255,.48); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+  .az-founder-copy .az-home-section-intro{ margin-bottom: 25px; }
+
+  .az-next-section{ padding: 104px 0 118px; border-top: 1px solid rgba(255,255,255,.13); background: linear-gradient(125deg,#101010 0%,#050505 55%,#000 100%); }
+  .az-next-inner{ text-align: center; }
+  .az-next-inner .section-kicker{ justify-content: center; }
+  .az-next-inner h2{ max-width: 850px; margin: 0 auto 22px; font-size: clamp(46px,7vw,88px); }
+  .az-next-inner .az-home-section-intro{ max-width: 520px; margin: 0 auto 30px; }
+  .az-next-actions{ display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+  .az-outline-button{ border-color: rgba(255,255,255,.42); color: #fff; background: transparent; }
+  .az-outline-button:hover{ border-color: #fff; background: #fff; color: #000; gap: 27px; }
+
+  @media (max-width: 1050px){
+    .az-approach-grid{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .az-approach-item:nth-child(3){ border-left: 0; border-top: 1px solid rgba(255,255,255,.12); padding-left: 0; }
+    .az-approach-item:nth-child(4){ border-top: 1px solid rgba(255,255,255,.12); }
+    .az-insight-grid{ grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .az-insight-item:nth-child(3){ border-left: 0; border-top: 1px solid rgba(255,255,255,.12); padding-left: 0; }
+    .az-insight-item:nth-child(4){ border-top: 1px solid rgba(255,255,255,.12); }
+  }
+  @media (max-width: 700px){
+    .az-home-shell{ width: min(calc(100% - 40px),1240px); }
+    .az-companies-section{ padding-bottom: 76px; }
+    .az-section-intro-wrap{ margin: 0; }
+    .az-companies-foot{ align-items: flex-start; flex-direction: column; gap: 12px; }
+    .az-home-statement .statement-inner{ padding-top: 82px; padding-bottom: 84px; }
+    .az-statement-copy{ margin-top: 23px; font-size: 14px; }
+    .az-approach-section,.az-insights-section,.az-founder-section{ padding: 82px 0; }
+    .az-home-section-head{ grid-template-columns: 1fr; gap: 22px; margin-bottom: 38px; }
+    .az-home-section-intro{ font-size: 14px; }
+    .az-approach-item{ padding: 22px 15px 24px; }
+    .az-approach-item:first-child,.az-approach-item:nth-child(3){ padding-left: 0; }
+    .az-approach-item h3{ margin-top: 34px; font-size: 20px; }
+    .az-approach-item p{ font-size: 12px; }
+    .az-approach-bottom{ align-items: flex-start; flex-direction: column; gap: 12px; }
+    .az-insight-grid{ grid-template-columns: 1fr; }
+    .az-insight-item,.az-insight-item:first-child,.az-insight-item:nth-child(3),.az-insight-item:nth-child(4){ min-height: 0; padding: 22px 0; border-left: 0; border-top: 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .az-insight-item h3{ margin: 24px 0 10px; font-size: 23px; }
+    .az-insight-item p{ max-width: 440px; margin-bottom: 18px; }
+    .az-updates-section{ padding: 78px 0; }
+    .az-updates-inner{ grid-template-columns: 1fr; gap: 42px; }
+    .az-updates-copy h2{ margin-bottom: 18px; }
+    .az-update-line{ grid-template-columns: 27px minmax(0,1fr) 18px; gap: 10px; padding: 18px 0; }
+    .az-update-line h3{ font-size: 14px; }
+    .az-updates-note{ margin-left: 37px; }
+    .az-founder-layout{ grid-template-columns: 1fr; gap: 30px; }
+    .az-founder-visual{ min-height: 260px; }
+    .az-founder-monogram{ font-size: 120px; }
+    .az-founder-copy{ padding: 4px 0 0; }
+    .az-founder-copy h2{ font-size: clamp(42px,11vw,58px); }
+    .az-next-section{ padding: 80px 0 88px; }
+    .az-next-actions{ flex-direction: column; align-items: stretch; }
+    .az-next-actions a{ width: 100%; }
+  }
+  @media (max-width: 390px){
+    .az-approach-grid{ grid-template-columns: 1fr; }
+    .az-approach-item,.az-approach-item:first-child,.az-approach-item:nth-child(3),.az-approach-item:nth-child(4){ padding: 20px 0; border-left: 0; border-top: 1px solid rgba(255,255,255,.12); }
+    .az-approach-item:first-child{ border-top: 0; }
+    .az-approach-item h3{ margin-top: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .az-inline-link,.az-insight-item,.az-light-button,.az-outline-button{ transition: none !important; }
+  }
+</style>
+
 <link rel="stylesheet" href="/assets/azryon-consent.css">
 </head>
 <body>
@@ -2178,64 +2416,214 @@ body footer p, body .footer-copy, body .footer-note{
 </div>
 </header>
 <main id="top">
-<section aria-labelledby="hero-title" class="hero">
-<div aria-hidden="true" class="hero-visual">
-<video aria-hidden="true" class="hero-visual-video" data-desktop-src="./assets/azryon-hero-1080p30.mp4" data-mobile-src="./assets/azryon-hero-720p30.mp4" disablepictureinpicture="" loop="" muted="" playsinline="" poster="./assets/azryon-hero-poster.webp" preload="none"></video>
-</div>
-<div class="hero-inner">
-<h1 class="hero-title" id="hero-title">
-<span class="hero-title-line">Expanding</span>
-<span class="hero-title-line">the possible</span>
-</h1>
-<p class="hero-subtitle">Azryon operates across Space, Super Intelligence, Robotics and Investments, developing innovative technologies to build the future.</p>
-<div class="hero-bottom">
-<a class="text-link" href="#focus">Explore <span aria-hidden="true">→</span></a>
-</div>
-</div>
-</section>
-<section aria-labelledby="focus-title" class="section" id="focus">
-<div class="section-head reveal">
-<div>
-<p class="section-kicker">Our subsidiaries</p>
-<h2 id="focus-title">Focused on<br/><span>what comes next.</span></h2>
-</div>
-<p class="section-intro">Four specialist businesses. One vision for the future.</p>
-</div>
-<div aria-label="Azryon subsidiaries" class="subsidiary-showcase">
-<a aria-label="Visit Azryon Space official website" class="subsidiary-feature reveal" href="https://azryonspace.com/" rel="noopener noreferrer" target="_blank">
-<span aria-hidden="true" class="subsidiary-feature-rule"></span>
-<h3 class="official-brand-name" style="text-transform: none !important; font-variant: normal !important; font-variant-caps: normal !important;">Azryon Space</h3>
-<p>Advancing space exploration.</p>
-<span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
-</a>
-<a aria-label="Visit Azryon SI official website" class="subsidiary-feature reveal" href="https://azryon.si/" rel="noopener noreferrer" target="_blank">
-<span aria-hidden="true" class="subsidiary-feature-rule"></span>
-<h3 class="official-brand-name" style="text-transform: none !important; font-variant: normal !important; font-variant-caps: normal !important;">Azryon <strong style="text-transform: none !important; font-variant: normal !important;">SI</strong></h3>
-<p>Developing intelligent systems.</p>
-<span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
-</a>
-<a aria-label="Visit Azryon Robotics official website" class="subsidiary-feature reveal" href="https://azryonrobotics.com/" rel="noopener noreferrer" target="_blank">
-<span aria-hidden="true" class="subsidiary-feature-rule"></span>
-<h3 class="official-brand-name" style="text-transform: none !important; font-variant: normal !important; font-variant-caps: normal !important;">Azryon Robotics</h3>
-<p>Engineering robotic solutions.</p>
-<span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
-</a>
-<a aria-label="Visit Azryon Capital official website" class="subsidiary-feature reveal" href="https://azryoncapital.com/" rel="noopener noreferrer" target="_blank">
-<span aria-hidden="true" class="subsidiary-feature-rule"></span>
-<h3 class="official-brand-name" style="text-transform: none !important; font-variant: normal !important; font-variant-caps: normal !important;">Azryon Capital</h3>
-<p>Backing future ventures.</p>
-<span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
-</a>
-</div>
-</section>
+  <section aria-labelledby="hero-title" class="hero">
+    <div aria-hidden="true" class="hero-visual">
+      <video aria-hidden="true" class="hero-visual-video" data-desktop-src="./assets/azryon-hero-1080p30.mp4" data-mobile-src="./assets/azryon-hero-720p30.mp4" disablepictureinpicture="" loop="" muted="" playsinline="" poster="./assets/azryon-hero-poster.webp" preload="none"></video>
+    </div>
+    <div class="hero-inner">
+      <h1 class="hero-title" id="hero-title">
+        <span class="hero-title-line">Expanding</span>
+        <span class="hero-title-line">the possible</span>
+      </h1>
+      <p class="hero-subtitle">Azryon brings together specialist businesses across Space, Super Intelligence, Robotics and Investments — focused on ideas and technologies shaping what comes next.</p>
+      <div class="hero-bottom">
+        <a class="text-link" href="#focus">Explore <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
 
-<section aria-labelledby="about-title" class="statement" id="about">
-<div class="statement-inner reveal">
-<p class="statement-label">The AZRYON perspective</p>
-<h2 id="about-title">Think beyond.<br/><span>Build forward.</span></h2>
-</div>
-</section>
+  <section aria-labelledby="focus-title" class="section az-companies-section" id="focus">
+    <div class="section-head reveal">
+      <div>
+        <p class="section-kicker">The AZRYON group</p>
+        <h2 id="focus-title">Four businesses.<br/><span>One wider vision.</span></h2>
+      </div>
+      <div class="az-section-intro-wrap">
+        <p class="section-intro">Four specialist areas, connected by a shared outlook on the future. Explore each business or discover how they come together under AZRYON.</p>
+        <a class="az-inline-link" href="./subcompanies.html">Explore all companies <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+    <div aria-label="Azryon specialist businesses" class="subsidiary-showcase">
+      <a aria-label="Visit Azryon Space official website" class="subsidiary-feature reveal" href="https://azryonspace.com/" rel="noopener noreferrer" target="_blank">
+        <span aria-hidden="true" class="subsidiary-feature-rule"></span>
+        <span class="az-pillar-index">01 / SPACE</span>
+        <h3 class="official-brand-name">Azryon Space</h3>
+        <p>Advancing space exploration.</p>
+        <span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
+      </a>
+      <a aria-label="Visit Azryon SI official website" class="subsidiary-feature reveal" href="https://azryon.si/" rel="noopener noreferrer" target="_blank">
+        <span aria-hidden="true" class="subsidiary-feature-rule"></span>
+        <span class="az-pillar-index">02 / SI</span>
+        <h3 class="official-brand-name">Azryon SI</h3>
+        <p>Developing intelligent systems.</p>
+        <span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
+      </a>
+      <a aria-label="Visit Azryon Robotics official website" class="subsidiary-feature reveal" href="https://azryonrobotics.com/" rel="noopener noreferrer" target="_blank">
+        <span aria-hidden="true" class="subsidiary-feature-rule"></span>
+        <span class="az-pillar-index">03 / ROBOTICS</span>
+        <h3 class="official-brand-name">Azryon Robotics</h3>
+        <p>Engineering robotic solutions.</p>
+        <span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
+      </a>
+      <a aria-label="Visit Azryon Capital official website" class="subsidiary-feature reveal" href="https://azryoncapital.com/" rel="noopener noreferrer" target="_blank">
+        <span aria-hidden="true" class="subsidiary-feature-rule"></span>
+        <span class="az-pillar-index">04 / INVESTMENT</span>
+        <h3 class="official-brand-name">Azryon Capital</h3>
+        <p>Backing future ventures.</p>
+        <span aria-hidden="true" class="subsidiary-feature-arrow">↗</span>
+      </a>
+    </div>
+    <div class="az-companies-foot reveal">
+      <span>Independent expertise. A shared direction.</span>
+      <a class="az-inline-link" href="./subcompanies.html">View the group <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
 
+  <section aria-labelledby="about-title" class="statement az-home-statement" id="about">
+    <div class="statement-inner reveal">
+      <p class="statement-label">The AZRYON perspective</p>
+      <h2 id="about-title">Think beyond.<br/><span>Build forward.</span></h2>
+      <p class="az-statement-copy">We bring distinct areas of focus together under one group — exploring new possibilities, developing intelligent systems, engineering robotic solutions and backing future ventures.</p>
+      <a class="az-inline-link" href="./mission.html">Discover our mission <span aria-hidden="true">↗</span></a>
+    </div>
+  </section>
+
+  <section aria-labelledby="approach-title" class="az-approach-section">
+    <div class="az-home-shell">
+      <div class="az-home-section-head reveal">
+        <div>
+          <p class="section-kicker">From vision to action</p>
+          <h2 id="approach-title">A wider view.<br/><span>A clear direction.</span></h2>
+        </div>
+        <p class="az-home-section-intro">Different disciplines. Complementary strengths. One forward-looking approach to the fields shaping tomorrow.</p>
+      </div>
+      <ol class="az-approach-grid">
+        <li class="az-approach-item reveal">
+          <span class="az-approach-number">01</span>
+          <h3>Explore</h3>
+          <p>Advance space exploration and new frontiers.</p>
+        </li>
+        <li class="az-approach-item reveal">
+          <span class="az-approach-number">02</span>
+          <h3>Understand</h3>
+          <p>Develop intelligent systems and new capabilities.</p>
+        </li>
+        <li class="az-approach-item reveal">
+          <span class="az-approach-number">03</span>
+          <h3>Engineer</h3>
+          <p>Build robotic solutions for a changing world.</p>
+        </li>
+        <li class="az-approach-item reveal">
+          <span class="az-approach-number">04</span>
+          <h3>Back the future</h3>
+          <p>Support future ventures through investment.</p>
+        </li>
+      </ol>
+      <div class="az-approach-bottom reveal">
+        <span>One group, working across four frontiers.</span>
+        <a class="az-inline-link" href="./mission.html">Our mission <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="insights-title" class="az-insights-section">
+    <div class="az-home-shell">
+      <div class="az-home-section-head az-insights-head reveal">
+        <div>
+          <p class="section-kicker">Ideas and perspectives</p>
+          <h2 id="insights-title">Ideas for what<br/><span>comes next.</span></h2>
+        </div>
+        <div class="az-insights-intro">
+          <p class="az-home-section-intro">Explore the questions, technologies and opportunities shaping the next frontier — across Space, Super Intelligence, Robotics and Investment.</p>
+          <a class="az-inline-link" href="./insights.html">Explore all insights <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="az-insight-grid">
+        <a class="az-insight-item reveal" href="./insights.html">
+          <span class="az-insight-meta">01 / SPACE</span>
+          <h3>Building beyond Earth.</h3>
+          <p>New thinking on infrastructure, exploration and the systems that could connect life and industry beyond our planet.</p>
+          <span class="az-insight-link">Explore perspective <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="az-insight-item reveal" href="./insights.html">
+          <span class="az-insight-meta">02 / INTELLIGENCE</span>
+          <h3>Intelligence as a catalyst.</h3>
+          <p>Considering how intelligent systems can be directed, understood and put to meaningful use.</p>
+          <span class="az-insight-link">Explore perspective <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="az-insight-item reveal" href="./insights.html">
+          <span class="az-insight-meta">03 / ROBOTICS</span>
+          <h3>Turning ideas into action.</h3>
+          <p>Where software meets the physical world, reliability and useful design matter as much as invention.</p>
+          <span class="az-insight-link">Explore perspective <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="az-insight-item reveal" href="./insights.html">
+          <span class="az-insight-meta">04 / INVESTMENT</span>
+          <h3>Backing what lasts.</h3>
+          <p>Recognising meaningful problems, strong foundations and the patience required to build enduring value.</p>
+          <span class="az-insight-link">Explore perspective <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="updates-title" class="az-updates-section">
+    <div class="az-home-shell az-updates-inner">
+      <div class="az-updates-copy reveal">
+        <p class="section-kicker">Newsroom / Official communications</p>
+        <h2 id="updates-title">Progress,<br/><span>in motion.</span></h2>
+        <p class="az-home-section-intro">Company news, announcements and milestones from across AZRYON — bringing you a closer view of what we are building and exploring.</p>
+        <a class="az-light-button" href="./updates.html">Explore updates <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="az-updates-list reveal">
+        <div class="az-update-line">
+          <span class="az-update-index">01</span>
+          <div><h3>Company announcements</h3><p>Official news, milestones and partnerships.</p></div>
+          <span aria-hidden="true" class="az-update-arrow">↗</span>
+        </div>
+        <div class="az-update-line">
+          <span class="az-update-index">02</span>
+          <div><h3>Technology and exploration</h3><p>Developments across Space, SI and Robotics.</p></div>
+          <span aria-hidden="true" class="az-update-arrow">↗</span>
+        </div>
+        <div class="az-update-line">
+          <span class="az-update-index">03</span>
+          <div><h3>Investment and ventures</h3><p>News from the wider investment ecosystem.</p></div>
+          <span aria-hidden="true" class="az-update-arrow">↗</span>
+        </div>
+        <p class="az-updates-note">Confirmed news and announcements will be published as they become available.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="founder-title" class="az-founder-section">
+    <div class="az-home-shell az-founder-layout">
+      <div class="az-founder-visual reveal" aria-hidden="true">
+        <span class="az-founder-visual-kicker">AZRYON / LEADERSHIP</span>
+        <span class="az-founder-monogram">HH</span>
+        <span class="az-founder-visual-foot">FOUNDER &amp; CEO</span>
+      </div>
+      <div class="az-founder-copy reveal">
+        <p class="section-kicker">The vision behind AZRYON</p>
+        <h2 id="founder-title">Hirun<br/><span>Heshatha.</span></h2>
+        <p class="az-founder-role">Founder &amp; CEO · Entrepreneur · Investor</p>
+        <p class="az-home-section-intro">Hirun Heshatha is the Founder &amp; CEO of AZRYON, building at the intersection of Space, AI, Robotics and Investments — driven by a vision to build the future.</p>
+        <a class="az-inline-link" href="./hirun-heshatha.html">Meet the founder <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="next-title" class="az-next-section">
+    <div class="az-home-shell az-next-inner reveal">
+      <p class="section-kicker">The next chapter starts here</p>
+      <h2 id="next-title">Build what<br/><span>comes next.</span></h2>
+      <p class="az-home-section-intro">Explore opportunities to be part of the AZRYON journey, or start a conversation with our team.</p>
+      <div class="az-next-actions">
+        <a class="az-light-button" href="./careers.html">Explore careers <span aria-hidden="true">↗</span></a>
+        <a class="az-outline-button" href="./contact.html">Contact AZRYON <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
 </main>
 <footer aria-label="AZRYON site footer" class="azryon-footer">
 <div class="azryon-footer-inner">
