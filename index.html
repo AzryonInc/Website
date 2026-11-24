@@ -304,7 +304,7 @@
       transform-origin: right;
       transition: transform .3s var(--ease);
     }
-    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color: var(--white); }
     .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
     .menu-button {
       display: none;
@@ -3574,13 +3574,14 @@ body .footer-note {
 <body>
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="wordmark" href="#top" aria-label="AZRYON home"><img src="./assets/azryon-wordmark.webp" alt="AZRYON" width="2048" height="682" decoding="async" /></a>
+      <a class="wordmark" href="./index.html#top" aria-label="AZRYON home"><img src="./assets/azryon-wordmark.webp" alt="AZRYON" width="2048" height="682" decoding="async" /></a>
       <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </button>
       <nav aria-label="Main navigation" class="nav-links" id="primary-navigation">
+  <a href="./index.html#top" aria-current="page">Home</a>
   <a href="./about.html">About</a>
   <a href="./mission.html">Mission</a>
   <a href="./subsidiaries.html">Subsidiaries</a>
