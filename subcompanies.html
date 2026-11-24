@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Keep analytics consistent with the AZRYON homepage. -->
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-MMNMFP83"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#000000" />
@@ -816,6 +810,7 @@ body .footer-note {
     .nav-links a { font-size: 10px !important; letter-spacing: .045em !important; }
   }
 </style>
+<link rel="stylesheet" href="/assets/azryon-consent.css">
 </head>
 <body>
   <header class="site-header">
@@ -904,6 +899,12 @@ body .footer-note {
     <span>© <span id="year">2026</span> AZRYON LLC. ALL RIGHTS RESERVED.</span>
     <span>THINK BEYOND. BUILD FORWARD.</span>
   </div>
+<nav class="az-legal-footer-links" aria-label="Legal and privacy">
+  <a href="/privacy-policy.html">Privacy Policy</a>
+  <a href="/terms.html">Terms of Use</a>
+  <a href="/cookie-policy.html">Cookie Policy</a>
+  <button type="button" data-az-cookie-settings>Cookie Settings</button>
+</nav>
 </footer>
 
   <script>
@@ -968,5 +969,17 @@ body .footer-note {
     </a>
   </div>
 
+
+<div class="az-cookie-banner" id="az-cookie-banner" role="region" aria-label="Cookie and privacy choices" hidden>
+  <p class="az-cookie-banner__eyebrow">Your privacy choices</p>
+  <h2 class="az-cookie-banner__title">Your choice. Your control.</h2>
+  <p class="az-cookie-banner__copy">Essential browser storage remembers your choice. With your permission, AZRYON loads its Google Tag Manager container, which may activate optional analytics or other measurement tags. You can choose essential storage only, or accept optional tags. Read our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
+  <div class="az-cookie-banner__actions">
+    <button type="button" data-az-cookie-accept>Accept optional</button>
+    <button type="button" data-az-cookie-essential>Essential only</button>
+  </div>
+</div>
+
+<script defer src="/assets/azryon-consent.js"></script>
 </body>
 </html>

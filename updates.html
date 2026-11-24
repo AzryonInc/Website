@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Keep analytics consistent with the AZRYON homepage. -->
-<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MMNMFP83"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <meta content="#000000" name="theme-color"/>
@@ -968,6 +962,7 @@ body .footer-note {
   }
 </style>
 
+<link rel="stylesheet" href="/assets/azryon-consent.css">
 </head>
 <body>
 <header class="site-header">
@@ -1113,12 +1108,14 @@ body .footer-note {
 <span>© <span id="year">2026</span> AZRYON LLC. ALL RIGHTS RESERVED.</span>
 <span>THINK BEYOND. BUILD FORWARD.</span>
 </div>
+<nav class="az-legal-footer-links" aria-label="Legal and privacy">
+  <a href="/privacy-policy.html">Privacy Policy</a>
+  <a href="/terms.html">Terms of Use</a>
+  <a href="/cookie-policy.html">Cookie Policy</a>
+  <button type="button" data-az-cookie-settings>Cookie Settings</button>
+</nav>
 </footer>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-  </script>
+
 <div class="whatsapp-float-shell">
 <a aria-label="Chat with Azryon on WhatsApp" class="whatsapp-float" href="https://wa.me/94785552511" rel="noopener noreferrer" target="_blank" title="Chat with Azryon on WhatsApp">
 <svg aria-hidden="true" class="whatsapp-float-icon" focusable="false" viewbox="0 0 24 24">
@@ -1126,5 +1123,17 @@ body .footer-note {
 </svg>
 </a>
 </div>
+
+<div class="az-cookie-banner" id="az-cookie-banner" role="region" aria-label="Cookie and privacy choices" hidden>
+  <p class="az-cookie-banner__eyebrow">Your privacy choices</p>
+  <h2 class="az-cookie-banner__title">Your choice. Your control.</h2>
+  <p class="az-cookie-banner__copy">Essential browser storage remembers your choice. With your permission, AZRYON loads its Google Tag Manager container, which may activate optional analytics or other measurement tags. You can choose essential storage only, or accept optional tags. Read our <a href="/cookie-policy.html">Cookie Policy</a>.</p>
+  <div class="az-cookie-banner__actions">
+    <button type="button" data-az-cookie-accept>Accept optional</button>
+    <button type="button" data-az-cookie-essential>Essential only</button>
+  </div>
+</div>
+
+<script defer src="/assets/azryon-consent.js"></script>
 </body>
 </html>

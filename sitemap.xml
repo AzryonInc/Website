@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://azryon.com/</loc></url>
-  <url><loc>https://azryon.com/about.html</loc></url>
-  <url><loc>https://azryon.com/subcompanies.html</loc></url>
-  <url><loc>https://azryon.com/careers.html</loc></url>
-  <url><loc>https://azryon.com/contact.html</loc></url>
-  <url><loc>https://azryon.com/hirun-heshatha.html</loc></url>
-  <url><loc>https://azryon.com/mission.html</loc></url>
-  <url><loc>https://azryon.com/insights.html</loc></url>
-  <url><loc>https://azryon.com/updates.html</loc></url>
+  <url><loc>https://azryon.com/</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/about.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/subcompanies.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/careers.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/contact.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/hirun-heshatha.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/mission.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/insights.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/updates.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/privacy-policy.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/terms.html</loc><lastmod>2026-11-24</lastmod></url>
+  <url><loc>https://azryon.com/cookie-policy.html</loc><lastmod>2026-11-24</lastmod></url>
 </urlset>
