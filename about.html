@@ -700,43 +700,47 @@ body .footer-note {
       width: min(calc(100% - 64px), 1240px);
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(210px, 1.35fr) repeat(3, minmax(120px, .75fr));
-      gap: clamp(24px, 4vw, 54px);
+      grid-template-columns: minmax(225px, 1.45fr) repeat(3, minmax(108px, .72fr));
+      gap: clamp(26px, 4.2vw, 58px);
       align-items: start;
     }
     .azryon-footer-brand { display: inline-flex; align-items: center; line-height: 0; }
-    .azryon-footer-brand img { display: block; width: 142px; max-width: 100%; height: auto; object-fit: contain; }
+    .azryon-footer-brand img { display: block; width: 150px; max-width: 100%; height: auto; object-fit: contain; }
+    .azryon-footer-brand-block { max-width: 320px; }
     .azryon-footer-description {
-      max-width: 245px;
-      margin: 20px 0 0;
-      color: rgba(255,255,255,.58);
-      font-size: 12px;
-      line-height: 1.75;
+      max-width: 310px;
+      margin: 16px 0 0;
+      color: rgba(255,255,255,.68);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: .13em;
+      line-height: 1.9;
+      text-transform: uppercase;
     }
     .azryon-footer-tagline {
-      margin: 10px 0 0;
-      color: rgba(255,255,255,.36);
-      font-size: 10px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
+      margin: 8px 0 0;
+      color: rgba(255,255,255,.38);
+      font-size: 9px;
+      letter-spacing: .06em;
+      line-height: 1.6;
     }
     .azryon-footer-heading {
-      margin: 4px 0 19px;
-      color: rgba(255,255,255,.42);
-      font-size: 10px;
+      margin: 4px 0 17px;
+      color: rgba(255,255,255,.46);
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: .16em;
-      line-height: 1.4;
+      letter-spacing: .18em;
+      line-height: 1.5;
       text-transform: uppercase;
     }
-    .azryon-footer-group ul { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
+    .azryon-footer-group ul { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
     .azryon-footer-group a {
       display: inline-flex;
       align-items: center;
       gap: 7px;
       color: rgba(255,255,255,.72);
-      font-size: 12px;
-      line-height: 1.5;
+      font-size: 11px;
+      line-height: 1.6;
       text-decoration: none;
       transition: color .2s ease, transform .2s ease;
     }
@@ -748,18 +752,18 @@ body .footer-note {
     .azryon-footer-group a span { color: rgba(255,255,255,.5); font-size: 11px; }
     .azryon-footer-bottom {
       width: min(calc(100% - 64px), 1240px);
-      margin: clamp(38px, 5vw, 58px) auto 0;
-      padding-top: 20px;
+      margin: clamp(34px, 4.5vw, 54px) auto 0;
+      padding-top: 18px;
       border-top: 1px solid rgba(255,255,255,.10);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px 24px;
       color: rgba(255,255,255,.35);
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 400;
-      letter-spacing: .12em;
-      line-height: 1.6;
+      letter-spacing: .13em;
+      line-height: 1.7;
       text-transform: uppercase;
     }
     @media (max-width: 900px) {
@@ -875,7 +879,7 @@ body .footer-note {
       <a class="azryon-footer-brand" href="./index.html#top" aria-label="AZRYON home">
         <img src="./assets/azryon-wordmark.webp" alt="AZRYON" width="2048" height="682" loading="lazy" decoding="async" />
       </a>
-      <p class="azryon-footer-description">Space · Super Intelligence · Robotics · Investments</p>
+      <p class="azryon-footer-description" aria-label="Space, SI, Robotics and Investment">SPACE · SI · ROBOTICS · INVESTMENT</p>
       <p class="azryon-footer-tagline">Think beyond. Build forward.</p>
     </div>
 
