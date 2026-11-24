@@ -692,6 +692,16 @@ body .footer-note {
     @media (max-width: 700px) { .contact-whatsapp-link { font-size: 13px; } }
   </style>
 
+
+  <style id="azryon-shop-nav-fit">
+    /* AZRYON SHOP NAV TABLET FIT: keep the seven-link navigation balanced before the mobile menu breakpoint. */
+    @media (min-width: 701px) and (max-width: 1050px) {
+      .nav-wrap { gap: 16px; }
+      .wordmark img { width: 148px; }
+      .nav-links { gap: clamp(10px, 1.35vw, 15px); }
+      .nav-links a { font-size: 10px; letter-spacing: .055em; }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -707,6 +717,7 @@ body .footer-note {
   <a href="./about.html">About</a>
   <a href="./mission.html">Mission</a>
   <a href="./subsidiaries.html">Subsidiaries</a>
+   <a href="https://shop.azryon.com/" aria-label="Visit the AZRYON Shop">Shop</a>
   <a href="./careers.html">Careers</a>
   <a href="./contact.html" aria-current="page">Contact</a>
 </nav>
