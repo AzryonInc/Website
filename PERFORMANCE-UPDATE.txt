@@ -1,0 +1,16 @@
+AZRYON HERO VIDEO PERFORMANCE UPDATE
+
+What changed
+- Re-encoded the original 3840x2160, 60 fps hero clip into H.264 MP4 files:
+  - azryon-hero-1080p30.mp4 for desktop/tablet
+  - azryon-hero-720p30.mp4 for small/mobile screens
+- Added a compact WebP poster image.
+- Moved the repeated header/footer wordmark out of the HTML and into an external WebP asset.
+- Changed the video to preload="none" and load only when the hero enters the viewport.
+- The video pauses when the hero scrolls out of view or the browser tab is hidden.
+- Users with prefers-reduced-motion or data saver enabled see the poster instead of autoplay video.
+
+Deploy
+Upload the contents of this Azryon folder to the same place as the current site, keeping the assets folder beside index.html.
+
+The original ZIP supplied for this update remains the unmodified backup. This optimized package does not include the original 4K60 source video because the page no longer references it.
